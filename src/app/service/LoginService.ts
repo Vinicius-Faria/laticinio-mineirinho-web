@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   verifica(login: Login): Observable<any>{
-    return this.http.get("https://emporiomineirinho.vercel.app/login?username=" +
+    return this.http.get("https://laticineo-mineirinho.herokuapp.com/login?login=" +
     login.login + "&senha=" + login.senha).pipe(delay(1000))
   }
   

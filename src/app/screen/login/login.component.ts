@@ -1,7 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/LoginService';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 import { Login } from '../entity/login';
 
 @Component({
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   success: Boolean = false;
   errors!: String[];
   loading = false;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
 
   constructor(    
     private serviceLogin: LoginService,
@@ -28,7 +29,11 @@ export class LoginComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {
+      duration: 5 * 1000,
+      horizontalPosition: this.horizontalPosition,
+      panelClass: 'panelClass'
+    });
   }
 
   onSubmit() {
@@ -39,7 +44,7 @@ export class LoginComponent implements OnInit {
       success => {
         if (success) {
           this.loading = false;
-          this.router.navigate(['/']);
+          this.router.navigate(['/cadastro']);
         } else {
           this.openSnackBar('Login ou Senha incorretos','OK');
           this.loading = false;

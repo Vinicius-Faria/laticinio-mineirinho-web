@@ -8,18 +8,19 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CadastroComponent } from './screen/cadastro/cadastro.component';
 import { LoginComponent } from './screen/login/login.component';
 
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ProdutoComponent } from './screen/produto/produto.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastroComponent
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatProgressBarModule,
     MatSnackBarModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

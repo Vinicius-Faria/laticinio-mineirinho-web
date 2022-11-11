@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './screen/login/login.component';
-import { CadastroComponent } from './screen/cadastro/cadastro.component';
+import { ProdutoComponent } from './screen/produto/produto.component';
 
 const routes: Routes = [
   {
@@ -12,8 +12,8 @@ const routes: Routes = [
     path: "", redirectTo: "/login", pathMatch: "full"
   },
   {
-    path: 'cadastro',
-    component: CadastroComponent,
+    path: 'produto',
+    component: ProdutoComponent,
   }
 ];
 

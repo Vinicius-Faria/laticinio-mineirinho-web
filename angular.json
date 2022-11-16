@@ -1,11 +1,18 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "44938da4-0b9f-4a8a-89c7-f21d0208eb18"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "laticinioweb": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,6 +99,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -98,7 +108,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": "1ea064a5-6fec-40da-ae8e-159262529519"
-  }
+  "defaultProject": "laticinioweb"
 }

@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       success => {
         if (success) {
           this.loading = false;
-          this.router.navigate(['/cadastro']);
+          this.router.navigate(['/produto']);
         } else {
           this.openSnackBar('Login ou Senha incorretos','OK');
           this.loading = false;

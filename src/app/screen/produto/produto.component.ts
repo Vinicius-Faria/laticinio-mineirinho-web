@@ -39,16 +39,46 @@ export class ProdutoComponent implements OnInit {
 
   onSubmit(){
 
+    if (!this.produto.id) {
     this.mode = "indeterminate";
       this.service.save(this.produto).subscribe(
         success => {
-          this.openSnackBar('Produto Salvo','OK');
-          this.produto.nome = '';
-          this.produto.descricao = '';
-          this.produto.preco = 0;
-          this.produto.codigo = '';
+          if(!success){
+            this.mode = "indeterminate";
+            this.openSnackBar('Produto Salvo','OK');
+            this.produto.nome = '';
+            this.produto.descricao = '';
+            this.produto.preco = 0;
+            this.produto.codigo = '';
+            this.produto.quantidade = 0;
+            this.produto.id = 0;
+            this.refresh();
+          }else{
+            this.mode = "indeterminate";
+            this.openSnackBar('Erro ao Atualizar','OK');
+          }
         },
       );
+    } else {
+      this.service.atualizar(this.produto).subscribe(
+        success => {
+          if(!success){
+            this.mode = "indeterminate";
+            this.openSnackBar('Produto Atualizado','OK');
+            this.produto.nome = '';
+            this.produto.descricao = '';
+            this.produto.preco = 0;
+            this.produto.codigo = '';
+            this.produto.id = 0;
+            this.produto.quantidade = 0;
+            this.refresh();
+          }else{
+            this.mode = "indeterminate";
+            this.openSnackBar('Erro ao Atualizar','OK');
+          }
+        }
+      )
+    }
     
   }
   

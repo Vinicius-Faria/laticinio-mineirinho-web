@@ -1,4 +1,4 @@
-<h3 class="mt-4" style="color: black; margin-left: 15px;">Cadastro de Produto</h3>
+<h2 class="mt-2" style="color: black; margin-left: 15px;">Cadastro de Produto</h2>
 
 <hr />
 
@@ -64,7 +64,7 @@
   <h3 style="color: black; margin-top: 30px; margin-left: 15px;">Itens cadastrados</h3>
 
   <div class="form-group col-md-12 col-lg-12" *ngFor="let card of card">
-    <mat-card class="card">
+    <mat-card class="card" style="margin-bottom: 20px;">
       <mat-card-title-group>
         <mat-card-title>{{card.nome}}</mat-card-title>
         <mat-card-subtitle style="color: black;">
@@ -78,7 +78,9 @@
         Descrição : {{card.descricao}}
       </mat-card-content>
       <mat-card-actions style="align-items: flex-end;">
-        <button mat-button style="background-color: yellow;"(click)="editarCadastro(card)">Editar</button>
+        <button mat-button class="btn btn-outline-warning" (click)="editarCadastro(card)">
+          <i class="fa fa-refresh"></i> Editar
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

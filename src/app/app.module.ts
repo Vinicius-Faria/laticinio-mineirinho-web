@@ -12,8 +12,10 @@ import { LoginComponent } from './screen/login/login.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ProdutoComponent } from './screen/produto/produto.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProdutoComponent } from './screen/produto/produto.component';
+import { MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

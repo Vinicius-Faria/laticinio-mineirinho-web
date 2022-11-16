@@ -10,15 +10,15 @@ export class ProdutoService{
 constructor(private http: HttpClient){}
 
     save(produto: Produto): Observable<any> {
-        return this.http.post<Produto>('http://localhost:8080/produto', produto)
+        return this.http.post<Produto>('https://laticineo-mineirinho.herokuapp.com/produto', produto)
     }
 
     getProduto(): Observable<Produto[]>{
-        return this.http.get<Produto[]>('http://localhost:8080/produto');
+        return this.http.get<Produto[]>('https://laticineo-mineirinho.herokuapp.com/produto');
     }
 
     atualizar(produto: Produto): Observable<any>{
-        return this.http.put<Produto>(`http://localhost:8080/produto/${produto.id}`, produto);
+        return this.http.put<Produto>(`https://laticineo-mineirinho.herokuapp.com/produto/${produto.id}`, produto);
       }
 
 }

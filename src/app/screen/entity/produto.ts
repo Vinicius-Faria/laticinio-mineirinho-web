@@ -2,7 +2,7 @@ export class Produto{
     id: number = 0;
     codigo: string = '';
     nome: string = '';
-    preco: number = 0;
+    preco: string = '';
     descricao: string = '';
-    quantidade: number = 0;
+    quantidade: string = '';
   }

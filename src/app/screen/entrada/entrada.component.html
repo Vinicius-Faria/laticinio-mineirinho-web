@@ -1,0 +1,58 @@
+<h2 class="mt-2" style="margin-left: 15px;">Entrada no Estoque</h2>
+
+<hr>
+
+<div class="col-md-6 mx-auto my-0" style="background-color: rgb(142, 237, 179); margin-left: 15px; border-radius: 15px 50px;" *ngIf="produto.id">
+  <form #fornecedorForm="ngForm" (ngSubmit)="onSubmit()" >
+    <div class="row" style="margin-left: 15px;">
+      <div class="col-md-12">
+
+        <h2 class="mt-2">{{produto.nome}}</h2>
+
+        <div class="form-group" style="margin-bottom: 5px;">
+          <label style="color: black;">Quantidade a adcionar:</label>
+          <input type="number" class="form-control" [(ngModel)]="produto.quantidade" name="quantidade">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 5px;">
+          <label style="color: black;">Preço:</label>
+          <input type="number" class="form-control" [(ngModel)]="produto.preco" name="preco">
+        </div>
+
+        <button type="submit" class="btn" style="margin-bottom: 10px; margin-left: 87.9%; background-color: #B2E7E8; color: black;">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4 mx-auto my-0" *ngFor="let card of card">
+          <mat-card class="card">
+              <mat-card-title-group>
+                  <mat-card-title style="color: #813a00;">{{card.nome}}</mat-card-title>
+              </mat-card-title-group>
+              <mat-card-content>
+                  Quantidade : {{card.quantidade}}
+              </mat-card-content>
+              <mat-card-content
+              style="color: #000000; 
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 4; 
+              -webkit-box-orient: vertical;">
+                Descrição : {{card.descricao}}
+              </mat-card-content>
+              <mat-card-actions style="align-items: flex-end;">
+                <button mat-button class="btn btn-outline-info" style="background: rgb(142, 237, 179); color: black;" (click)="adcionarEstoque(card)">
+                  <i class="fa fa-plus-square-o"></i> Entrada
+                </button>
+              </mat-card-actions>
+          </mat-card>
+      </div>
+  </div>
+</div>

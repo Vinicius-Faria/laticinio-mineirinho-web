@@ -28,22 +28,20 @@
             <input type="number" class="form-control" [(ngModel)]="produto.quantidade" name="quantidade">
           </div>
   
-          <mat-form-field class="form-group" appearance="standard" style="width: 100%;">
-            <mat-label style="color: black;">Descrição do produto</mat-label>
-            <textarea matInput placeholder="Descreva o produto" style="color: black;" [(ngModel)]="produto.descricao"
-              name="descricao"></textarea>
-          </mat-form-field>
+          <div class="form-group" style="margin-bottom: 5px;">
+            <label style="color: black;">Descrição:</label>
+            <input type="text" class="form-control" [(ngModel)]="produto.descricao" name="descricao">
+          </div>
   
         </div>
       </div>
       <div class="row" style="margin-top: 15px; margin-left: 15px;">
         <div class="col">
-          <button type="submit" class="btn btn-success" *ngIf="!produto.id">
+          <button type="submit" class="btn" style="background-color: #B2E7E8; color: black;" *ngIf="!produto.id">
             <i class="fa fa-save"></i> Salvar
           </button>
   
-          <button type="submit" class="btn btn-success" 
-          style="background-color: yellow; color: black; margin-left: 10px;" 
+          <button type="submit" class="btn" style="background-color: #edca8e; color: black; margin-left: 10px;" 
           *ngIf="produto.id">
             <i class="fa fa-save"></i> Atualizar
           </button>
@@ -78,7 +76,7 @@
         Descrição : {{card.descricao}}
       </mat-card-content>
       <mat-card-actions style="align-items: flex-end;">
-        <button mat-button class="btn btn-outline-warning" (click)="editarCadastro(card)">
+        <button mat-button class="btn" style="background-color: rgb(142, 237, 179); color: black;" (click)="editarCadastro(card)">
           <i class="fa fa-refresh"></i> Editar
         </button>
       </mat-card-actions>

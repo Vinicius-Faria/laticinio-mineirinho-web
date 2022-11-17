@@ -16,13 +16,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProdutoComponent } from './screen/produto/produto.component';
 import { MatCardModule} from '@angular/material/card';
+import { EntradaComponent } from './screen/entrada/entrada.component';
+import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    EntradaComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatIconModule,
     NgbModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

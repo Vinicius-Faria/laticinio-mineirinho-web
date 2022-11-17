@@ -48,9 +48,9 @@ export class ProdutoComponent implements OnInit {
             this.openSnackBar('Produto Salvo','OK');
             this.produto.nome = '';
             this.produto.descricao = '';
-            this.produto.preco = 0;
+            this.produto.preco = '';
             this.produto.codigo = '';
-            this.produto.quantidade = 0;
+            this.produto.quantidade = '';
             this.produto.id = 0;
             this.refresh();
           }else{
@@ -67,10 +67,10 @@ export class ProdutoComponent implements OnInit {
             this.openSnackBar('Produto Atualizado','OK');
             this.produto.nome = '';
             this.produto.descricao = '';
-            this.produto.preco = 0;
+            this.produto.preco = '';
             this.produto.codigo = '';
             this.produto.id = 0;
-            this.produto.quantidade = 0;
+            this.produto.quantidade = '';
             this.refresh();
           }else{
             this.mode = "indeterminate";

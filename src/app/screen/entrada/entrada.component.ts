@@ -39,6 +39,7 @@ export class EntradaComponent implements OnInit {
     this.produto.preco = card.preco;
 
     this.produto.descricao = card.descricao;
+    window.scrollTo(0,0)
   }
 
   async refresh() {

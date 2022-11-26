@@ -1,0 +1,38 @@
+<mat-drawer-container class="container-drawer" autosize [hasBackdrop]="true">
+    <mat-drawer #drawer class="drawer-sidenav" mode="over">
+  
+      <div class="title">
+        <h2 style="color: black;">Produtos</h2>
+      </div>
+  
+      <div class="div-sidenav">
+        <button routerLink="/produto" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
+          class="button-sidenav">
+          <i class="fa fa-floppy-o"></i> Cadastro
+        </button>
+      </div>
+  
+      <div class="div-sidenav">
+        <button routerLink="/entrada" mat-raised-button matTooltip="Entrada no Estoque" matTooltipClass="tooltip-sidebar"
+          class="button-sidenav">
+          <i class="fa fa-plus-square-o"></i> Entrada 
+        </button>
+      </div>
+
+      <div class="div-sidenav">
+        <button routerLink="/saida" mat-raised-button matTooltip="Saída do Estoque" matTooltipClass="tooltip-sidebar"
+          class="button-sidenav">
+          <i class="fa fa-minus-square-o"></i> Saída 
+        </button>
+      </div>
+  
+    </mat-drawer>
+  
+    <mat-toolbar>
+      <button mat-icon-button class="icon-tollbar" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- <img mat-card-image src="/assets/Logo_desenho.jpg" class="img_logo"> -->
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>

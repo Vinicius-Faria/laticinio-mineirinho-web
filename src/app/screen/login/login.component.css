@@ -156,7 +156,7 @@ hr{
 }
 
 .btn{
-  background-color: #FE6701;
+  background-color: rgb(142, 237, 179);
 }
 
 .forgot-password {
@@ -170,7 +170,7 @@ hr{
 }
   
 ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #FE6701;
+  background-color: rgb(142, 237, 179);
 }
   
 ::ng-deep .mat-progress-bar-buffer {

@@ -1,0 +1,75 @@
+<h2 class="mt-2" style="margin-left: 15px; color: black;">Saída do Estoque</h2>
+
+<hr>
+
+<form #saidaForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row" style="margin-left: 15px; margin-right: 15px;">
+        <div class="col-md-12">
+            <div class="form-group" style="margin-bottom: 5px;">
+            <label class="control-label" for="produto" style="color: black; margin-right: 5px">Produto</label>
+                <div class="form-group col-md-12 col-lg-12">
+                    <select class="custom-select custom-select-sm" style="width: 100%; height: 35px" id="produto"
+                    name="fornecedorSelected" [(ngModel)]="produtoSelected">
+                        <option *ngFor="let produto of produto" value={{produto.nome}}>
+                            {{produto.nome}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-left: 15px; margin-right: 15px;">
+        <div class="form-group col-md-6">
+            <label style="color: black;">Quantidade:</label>
+            <input type="text" class="form-control" [(ngModel)]="quantidade" name="quantidade" (click)="updateValues()">
+            <h5 style="color: black">* Ex: 1kg / 0.5kg</h5>
+        </div>
+        <div class="form-group col-md-4">
+            <label style="color: black;">Preço:</label>
+            <input type="text" class="form-control" [(ngModel)]="preco" name="preco">
+        </div>
+        <div class="col-md-2" style="margin-top: 20px;">
+            <button type="submit" class="btn btn-success" (click)="alteraPontuacao()">Adcionar</button>
+        </div>
+    </div>
+</form>
+
+<hr style="background-color: black;">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let card of card">
+            <mat-card class="card">
+                <mat-card-title-group>
+                    <mat-card-title style="color: #813a00;">{{card.nome}}</mat-card-title>
+                </mat-card-title-group>
+                <mat-card-content>
+                    Quantidade : {{card.quantidade}}
+                    Valor : {{card.preco}}
+                </mat-card-content>
+                <mat-card-content>
+                    Total : {{card.total}}
+                </mat-card-content>
+                <mat-card-actions style="align-items: flex-end;">
+                  <button mat-button class="btn btn-outline-info" style="background: rgb(237, 142, 142); color: black;" (click)="retirarCard(card)">
+                    <i class="fa fa-minus-square-o"></i> Retirar
+                  </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+  </div>
+
+  <hr style="background-color: black;">
+
+<div class="rowTotal">
+    <div class="col-md-12" style="margin-top: 10px; margin-left: 80%">
+        <h2 class="mt-2" style="margin-left: 15px; color: white;">Total : {{valorTotal}}</h2>
+    </div>
+</div>
+
+<div class="row" style="margin-left: 15px; margin-right: 15px;">
+    <div class="col-md-2" style="margin-top: 20px;">
+        <button type="button" class="btn btn-success">Salvar</button>
+    </div>
+</div>

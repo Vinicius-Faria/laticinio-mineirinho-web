@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './screen/login/login.component';
 import { ProdutoComponent } from './screen/produto/produto.component';
 import { EntradaComponent } from './screen/entrada/entrada.component';
+import { ToolbarComponent } from './screen/toolbar/toolbar.component';
+import { SaidaComponent } from './screen/saida/saida.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,14 @@ const routes: Routes = [
   {
     path: 'entrada',
     component: EntradaComponent,
+  },
+  {
+    path: 'toolbar',
+    component: ToolbarComponent,
+  },
+  {
+    path: 'saida',
+    component: SaidaComponent,
   }
 ];
 

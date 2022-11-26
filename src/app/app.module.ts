@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -18,14 +18,23 @@ import { ProdutoComponent } from './screen/produto/produto.component';
 import { MatCardModule} from '@angular/material/card';
 import { EntradaComponent } from './screen/entrada/entrada.component';
 import { MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ToolbarComponent } from './screen/toolbar/toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SaidaComponent } from './screen/saida/saida.component';
+import { MatSelectModule } from '@angular/material/select';
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
-
+registerLocaleData(ptBr);
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProdutoComponent,
     EntradaComponent,
+    ToolbarComponent,
+    SaidaComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +49,15 @@ import { MatButtonToggleModule} from '@angular/material/button-toggle';
     MatIconModule,
     NgbModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },    
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

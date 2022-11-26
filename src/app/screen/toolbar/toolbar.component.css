@@ -1,0 +1,60 @@
+.mat-toolbar{
+  background-color: rgb(142, 237, 179);
+}
+
+.icon-tollbar{
+  margin: 1%;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;       
+}
+
+.title{
+text-align: center;
+}
+
+.icon-sidenav{
+color: black;
+}
+
+.container-drawer {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.drawer-sidenav {
+  padding: 5%;
+  background-color: rgb(142, 237, 179);
+}
+
+.div-sidenav {
+text-align: center;
+margin-bottom: 15px;
+}
+
+.div-sidenav-cart{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.button-sidenav{
+width:200px;
+overflow: hidden;
+border-radius: 100px;
+}
+
+.tooltip-sidebar {
+  background: grey;
+}
+
+.img_logo{
+  width: 15%;
+  border-radius:10px;
+}
+
+.divider{
+padding: 15px;
+}

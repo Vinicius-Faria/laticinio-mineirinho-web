@@ -7,11 +7,12 @@ import { Login } from '../screen/entity/login';
   providedIn: 'root'
 })
 export class LoginService {
-
+  url = 'https://laticineo-mineirinho.herokuapp.com/';
+  urlLocal = 'http://localhost:8080/'
   constructor(private http: HttpClient) { }
 
   verifica(login: Login): Observable<any>{
-    return this.http.get("https://laticineo-mineirinho.herokuapp.com/login?login=" +
+    return this.http.get(this.url + "login?login=" +
     login.login + "&senha=" + login.senha).pipe(delay(1000))
   }
   

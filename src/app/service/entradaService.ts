@@ -7,10 +7,12 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 export class EntradaService{
+    url = 'https://laticineo-mineirinho.herokuapp.com/';
+    urlLocal = 'http://localhost:8080/'
 constructor(private http: HttpClient){}
 
     save(produto: Produto): Observable<any> {
-        return this.http.post<Produto>('https://laticineo-mineirinho.herokuapp.com/entrada', produto)
+        return this.http.post<Produto>(this.url + 'entrada', produto)
     }
 
 }

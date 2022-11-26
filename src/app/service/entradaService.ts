@@ -10,7 +10,7 @@ export class EntradaService{
 constructor(private http: HttpClient){}
 
     save(produto: Produto): Observable<any> {
-        return this.http.post<Produto>('https://emporiomineirinho.vercel.app/entrada', produto)
+        return this.http.post<Produto>('https://laticineo-mineirinho.herokuapp.com/entrada', produto)
     }
 
 }

@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   verifica(login: Login): Observable<any>{
-    return this.http.get(this.urlLocal + "login?login=" +
+    return this.http.get(this.url + "login?login=" +
     login.login + "&senha=" + login.senha).pipe(delay(1000))
   }
   

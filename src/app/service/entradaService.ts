@@ -12,7 +12,7 @@ export class EntradaService{
 constructor(private http: HttpClient){}
 
     save(produto: Produto): Observable<any> {
-        return this.http.post<Produto>(this.urlLocal + 'entrada', produto)
+        return this.http.post<Produto>(this.url + 'entrada', produto)
     }
 
 }

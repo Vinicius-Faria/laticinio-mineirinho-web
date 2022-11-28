@@ -14,7 +14,7 @@ export class RelatorioService{
     constructor(private http: HttpClient){}
 
     getRelatorioVenda(relatorio: RelatorioSaida): Observable<any>{
-        return this.http.get<any>(this.urlLocal + "relatorio/saida", {
+        return this.http.get<any>(this.url + "relatorio/saida", {
             headers: this.headers,
             observe: 'response',
             params:{

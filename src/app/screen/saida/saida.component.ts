@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../../service/produtoService';
 import { Produto } from '../entity/produto';
 import { Saida } from '../entity/saida';
+import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-saida',
@@ -18,9 +19,12 @@ export class SaidaComponent implements OnInit {
   preco = '';
   saidaForm : Saida;
   valorTotal = 0;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  bolleanCard = false;
 
   constructor(
     private service: ProdutoService,
+    private _snackBar: MatSnackBar
   ) { 
     this.produto = new Produto();
     this.saidaForm = new Saida();
@@ -29,26 +33,40 @@ export class SaidaComponent implements OnInit {
   async ngOnInit() {
     try {
       this.produto = await this.service.getProduto().toPromise();
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   }
 
   onSubmit(){
+
+   this.atualizaForm();
+
+    if(this.card.length > 0){
+      this.card.forEach((element: any) => {
+        if(element.nome === this.saidaForm.nome){
+          this.openSnackBar('Produto já adicionado, retire do carrinho e adcione corretamente','OK');
+          this.bolleanCard = true;
+        }
+      });
+    }
+
+    if(!this.bolleanCard){
+      this.card.push({
+        ...this.saidaForm
+        });
+        
+        this.preco = '';
+        this.quantidade = '';
+        this.valorTotal = this.valorTotal + Number(this.saidaForm.totalProd);
+        this.saidaForm.total = String(this.valorTotal.toFixed(2));
+    }
+    this.bolleanCard = false;
+  }
+
+  atualizaForm(){
     this.saidaForm.nome = this.produtoSelected;
     this.saidaForm.preco = this.preco;
     this.saidaForm.quantidade = this.quantidade;
-    this.saidaForm.total = String((Number(this.preco) * Number(this.quantidade)).toFixed(2)).toString();
-
-    this.card.push({
-    ...this.saidaForm
-    });
-
-
-    this.preco = '';
-    this.quantidade = '';
-
-    this.valorTotal = this.valorTotal + Number(this.saidaForm.total);
+    this.saidaForm.totalProd = String((Number(this.preco) * Number(this.quantidade)).toFixed(2)).toString();
   }
 
   updateValues(){
@@ -61,10 +79,6 @@ export class SaidaComponent implements OnInit {
 
   }
 
-  adcionarCard(){
-
-  }
-
   retirarCard(card: any){
     this.card.forEach((element: any) => {
       if(element.nome == card.nome){
@@ -72,13 +86,20 @@ export class SaidaComponent implements OnInit {
         this.valorTotal = (Number(this.valorTotal) - Number(element.preco * element.quantidade));
       }
     });
-
-
-
   }
 
   alteraPontuacao(){
     this.quantidade = this.quantidade.valueOf().replace(',', '.');
   }
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 8 * 1000,
+      horizontalPosition: this.horizontalPosition,
+      panelClass: 'panelClass'
+    });
+  }
+
+  finalizarSaida(){
+  }
 }

@@ -22,7 +22,7 @@
         <div class="form-group col-md-6">
             <label style="color: black;">Quantidade:</label>
             <input type="text" class="form-control" [(ngModel)]="quantidade" name="quantidade" (click)="updateValues()">
-            <h5 style="color: black">* Ex: 1kg / 0.5kg</h5>
+            <h5 style="color: black">* Ex: 1kg / 0.5kg ou 1 quantidade</h5>
         </div>
         <div class="form-group col-md-4">
             <label style="color: black;">Preço:</label>
@@ -63,13 +63,13 @@
   <hr style="background-color: black;">
 
 <div class="rowTotal">
-    <div class="col-md-12" style="margin-top: 10px; margin-left: 80%">
-        <h2 class="mt-2" style="margin-left: 15px; color: white;">Total : {{valorTotal}}</h2>
+    <div class="col-md-2" style="margin-top: 10px; margin-left: 80%">
+        <h2 class="mt-2" style="margin-left: 15px; color: white;">Total : {{valorTotal.toFixed(2)}}</h2>
     </div>
 </div>
 
 <div class="row" style="margin-left: 15px; margin-right: 15px;">
     <div class="col-md-2" style="margin-top: 20px;">
-        <button type="button" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-success" (click)="finalizarSaida()">Finalizar Saída</button>
     </div>
 </div>

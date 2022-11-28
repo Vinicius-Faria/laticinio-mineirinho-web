@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from '../entity/produto';
 import { ProdutoService } from '../../service/produtoService';
 import { RelatorioSaida } from '../entity/relatorioSaida';
+import { RelatorioService } from '../../service/relatorioService';
+import { getContentTypeFromResponse, saveFile } from '../util/file-download-util';
 
 @Component({
   selector: 'app-relatorio',
@@ -19,6 +21,7 @@ export class RelatorioComponent implements OnInit {
 
   constructor(
     private service: ProdutoService,
+    private serviceRelatorio: RelatorioService,
   ) {
     this.produto = new Produto();
     this.relatorioSaida= new RelatorioSaida();
@@ -42,7 +45,15 @@ export class RelatorioComponent implements OnInit {
       this.relatorioSaida.dataFim = this.dataFim;
     }
 
-    console.log(this.relatorioSaida);
+    this.serviceRelatorio.getRelatorioVenda(this.relatorioSaida).subscribe(
+      success =>{
+        if (success.body.size) {
+          const blob = new Blob([success.body]);
+          const contentType = getContentTypeFromResponse(success);
+          saveFile(blob, "Relatorio.pdf", contentType);
+        }
+      }
+    )
 
   }
 

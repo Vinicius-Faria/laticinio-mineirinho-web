@@ -13,11 +13,11 @@ export class SaidaService{
     constructor(private http: HttpClient){}
 
     save(saida: Array<Saida>): Observable<any> {
-        return this.http.post<Saida>(this.url + 'saida', saida)
+        return this.http.post<Saida>(this.urlLocal + 'saida', saida)
     }
 
     getNumeroVenda(): Observable<any>{
-        return this.http.get(this.url + 'saida/numero')
+        return this.http.get(this.urlLocal + 'saida/numero')
     }
 
 }

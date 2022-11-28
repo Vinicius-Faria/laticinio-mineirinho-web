@@ -12,15 +12,15 @@ export class ProdutoService{
 constructor(private http: HttpClient){}
 
     save(produto: Produto): Observable<any> {
-        return this.http.post<Produto>(this.url + 'produto', produto)
+        return this.http.post<Produto>(this.urlLocal + 'produto', produto)
     }
 
     getProduto(): Observable<Produto[]>{
-        return this.http.get<Produto[]>(this.url + 'produto');
+        return this.http.get<Produto[]>(this.urlLocal + 'produto');
     }
 
     atualizar(produto: Produto): Observable<any>{
-        return this.http.put<Produto>(this.url + `produto/${produto.id}`, produto);
+        return this.http.put<Produto>(this.urlLocal + `produto/${produto.id}`, produto);
       }
 
 }

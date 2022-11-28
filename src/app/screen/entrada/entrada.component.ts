@@ -48,8 +48,6 @@ export class EntradaComponent implements OnInit {
 
   onSubmit(){
 
-    console.log(this.produto);
-
     this.serviceEntrada.save(this.produto).subscribe(
       success => {
           this.openSnackBar('Entrada Salva','OK');

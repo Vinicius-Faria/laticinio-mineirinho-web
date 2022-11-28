@@ -25,6 +25,8 @@ import { SaidaComponent } from './screen/saida/saida.component';
 import { MatSelectModule } from '@angular/material/select';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { RelatorioComponent } from './screen/relatorio/relatorio.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -35,6 +37,7 @@ registerLocaleData(ptBr);
     EntradaComponent,
     ToolbarComponent,
     SaidaComponent,
+    RelatorioComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ registerLocaleData(ptBr);
     MatButtonToggleModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },    

@@ -1,6 +1,8 @@
 <h2 class="mt-2" style="margin-left: 15px; color: black;">Saída do Estoque</h2>
 
-<hr>
+<hr style="color: black;">
+
+<h3 class="mt-2" style="margin-left: 15px; color: black;">Venda Numero : {{nVenda}}</h3>
 
 <form #saidaForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row" style="margin-left: 15px; margin-right: 15px;">
@@ -36,7 +38,7 @@
 
 <hr style="background-color: black;">
 
-<div class="container">
+<div class="container" *ngIf="card.length > 0">
     <div class="row">
         <div class="col-md-3" *ngFor="let card of card">
             <mat-card class="card">
@@ -48,7 +50,7 @@
                     Valor : {{card.preco}}
                 </mat-card-content>
                 <mat-card-content>
-                    Total : {{card.total}}
+                    Total : {{card.totalProd}}
                 </mat-card-content>
                 <mat-card-actions style="align-items: flex-end;">
                   <button mat-button class="btn btn-outline-info" style="background: rgb(237, 142, 142); color: black;" (click)="retirarCard(card)">

@@ -4,6 +4,8 @@ import { ProdutoService } from '../../service/produtoService';
 import { Produto } from '../entity/produto';
 import { Saida } from '../entity/saida';
 import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
+import { SaidaService } from '../../service/saidaService';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-saida',
@@ -12,7 +14,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/sn
 })
 export class SaidaComponent implements OnInit {
 
-  card: any = [];
+  card: Array<Saida>;
   produto: any = [];
   produtoSelected = '';
   quantidade = '';
@@ -21,19 +23,31 @@ export class SaidaComponent implements OnInit {
   valorTotal = 0;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   bolleanCard = false;
+  nVenda = '';
 
   constructor(
     private service: ProdutoService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private saidaService: SaidaService
   ) { 
     this.produto = new Produto();
     this.saidaForm = new Saida();
+    this.card = new Array<Saida>();
   }
 
   async ngOnInit() {
     try {
       this.produto = await this.service.getProduto().toPromise();
+      this.atualizaNumeroVenda();
     } catch (error) {}
+  }
+
+  atualizaNumeroVenda(){
+    this.saidaService.getNumeroVenda().subscribe(
+      success => {
+        this.nVenda = String(Number(success) + 1);
+      },
+    );
   }
 
   onSubmit(){
@@ -44,12 +58,13 @@ export class SaidaComponent implements OnInit {
       this.card.forEach((element: any) => {
         if(element.nome === this.saidaForm.nome){
           this.openSnackBar('Produto já adicionado, retire do carrinho e adcione corretamente','OK');
-          this.bolleanCard = true;
+          this.bolleanCard = true
         }
       });
     }
 
     if(!this.bolleanCard){
+      this.saidaForm.venda = this.nVenda;
       this.card.push({
         ...this.saidaForm
         });
@@ -101,5 +116,24 @@ export class SaidaComponent implements OnInit {
   }
 
   finalizarSaida(){
+
+    this.saidaService.save(this.card).subscribe(
+      success => {
+          this.openSnackBar('Saída Finalizada','OK');
+          this.card = [];
+          this.saidaForm.nome = '';
+          this.saidaForm.preco = '';
+          this.saidaForm.quantidade = '';
+          this.saidaForm.total = '';
+          this.saidaForm.totalProd = '';
+          this.valorTotal = 0;
+          this.atualizaNumeroVenda();
+      },
+    );
+  }
+
+  numeroVenda(){
+    console.log(this.saidaService.getNumeroVenda());
+    return this.saidaService.getNumeroVenda();
   }
 }

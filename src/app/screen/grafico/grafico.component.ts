@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { X } from 'chart.js/dist/chunks/helpers.core';
+import { endWith } from 'rxjs';
 
 @Component({
   selector: 'app-grafico',
@@ -30,16 +32,15 @@ export class GraficoComponent implements OnInit {
           {
             label: 'Produtos Vendidos',
             data: [15,20,13,18,35,18.5,20.1],
-            backgroundColor: 'rgb(142, 237, 179)',
-            borderWidth: 2
+            backgroundColor: 'rgb(254, 103, 1, 0.5)',
           },
         ]
       },
       options: {
         scales:{
           y:{
-            beginAtZero: true
-          }
+            beginAtZero: true,
+          },
         }
       }
     });

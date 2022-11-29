@@ -29,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { GraficoComponent } from './screen/grafico/grafico.component';
 import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component';
 import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -60,7 +61,8 @@ registerLocaleData(ptBr);
     MatToolbarModule,
     MatSidenavModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },    

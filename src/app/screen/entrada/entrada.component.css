@@ -26,3 +26,11 @@
   .example-button-row a {
     margin-right: 8px;
   }
+
+  .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #FE6701;
+}
+
+mat-spinner {
+    zoom: 0.5
+}

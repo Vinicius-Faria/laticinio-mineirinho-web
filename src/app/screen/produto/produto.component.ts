@@ -31,7 +31,9 @@ export class ProdutoComponent implements OnInit {
 
   async ngOnInit() {
     try {
+      this.mode = "indeterminate";
       this.card = await this.service.getProduto().toPromise();
+      this.mode = "determinate";
     } catch (error) {
       
     }

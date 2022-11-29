@@ -24,6 +24,7 @@ export class SaidaComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   bolleanCard = false;
   nVenda = '';
+  loading = false;
 
   constructor(
     private service: ProdutoService,
@@ -37,6 +38,7 @@ export class SaidaComponent implements OnInit {
 
   async ngOnInit() {
     try {
+      this.loading = true;
       this.produto = await this.service.getProduto().toPromise();
       this.atualizaNumeroVenda();
     } catch (error) {}
@@ -46,6 +48,7 @@ export class SaidaComponent implements OnInit {
     this.saidaService.getNumeroVenda().subscribe(
       success => {
         this.nVenda = String(Number(success) + 1);
+        this.loading = false
       },
     );
   }
@@ -116,6 +119,7 @@ export class SaidaComponent implements OnInit {
   }
 
   finalizarSaida(){
+    this.loading = true;
 
     this.saidaService.save(this.card).subscribe(
       success => {

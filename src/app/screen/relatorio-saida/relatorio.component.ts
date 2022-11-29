@@ -18,6 +18,7 @@ export class RelatorioComponent implements OnInit {
   dataInicio = "";
   dataFim = "";
   relatorioSaida: RelatorioSaida;
+  loading = false;
 
   constructor(
     private service: ProdutoService,
@@ -29,12 +30,14 @@ export class RelatorioComponent implements OnInit {
 
    async ngOnInit() {
     try {
+      this.loading = true;
       this.produto = await this.service.getProduto().toPromise();
+      this.loading = false;
     } catch (error) {}
   }
 
   onSubmit(){
-
+    this.loading = true;
     if(this.all === true){
       this.relatorioSaida.nome = 'Todos';
       this.relatorioSaida.dataInicio = this.dataInicio;
@@ -48,6 +51,7 @@ export class RelatorioComponent implements OnInit {
     this.serviceRelatorio.getRelatorioVenda(this.relatorioSaida).subscribe(
       success =>{
         if (success.body.size) {
+          this.loading = false;
           const blob = new Blob([success.body]);
           const contentType = getContentTypeFromResponse(success);
           saveFile(blob, "Relatorio.pdf", contentType);

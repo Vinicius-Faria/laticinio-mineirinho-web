@@ -16,6 +16,7 @@ export class GraficoComponent implements OnInit {
   data : any = [];
   saidaQuantidade : any = [];
   entradaQuantidade : any = [];
+  loading = false;
 
   constructor(
     private saidaService: SaidaService
@@ -24,6 +25,7 @@ export class GraficoComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.loading = true;
     this.geraGrafico();
   }
 
@@ -44,6 +46,7 @@ export class GraficoComponent implements OnInit {
   }
 
   graficoQuantidade(){
+    this.loading = false;
     new Chart(this.elemento.nativeElement, {
       type: 'bar',
       

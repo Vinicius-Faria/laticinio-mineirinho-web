@@ -16,6 +16,7 @@ export class EntradaComponent implements OnInit {
   card: any = [];
   produto: Produto;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  loading = false;
 
   constructor(
     private service: ProdutoService,
@@ -27,7 +28,9 @@ export class EntradaComponent implements OnInit {
 
   async ngOnInit() {
     try {
+      this.loading = true;
       this.card = await this.service.getProduto().toPromise();
+      this.loading = false;
     } catch (error) {
       
     }
@@ -44,10 +47,12 @@ export class EntradaComponent implements OnInit {
 
   async refresh() {
     this.card = await this.service.getProduto().toPromise();
+    this.loading = false;
   }
 
   onSubmit(){
 
+    this.loading = true;
     this.serviceEntrada.save(this.produto).subscribe(
       success => {
           this.openSnackBar('Entrada Salva','OK');

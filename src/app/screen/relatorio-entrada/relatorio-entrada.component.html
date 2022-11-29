@@ -1,0 +1,41 @@
+<h2 class="mt-2" style="margin-left: 15px; color: black;">Entrada do estoque</h2>
+
+<hr style="color: black;">
+
+<form #saidaForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row" style="margin-left: 15px; margin-right: 15px;">
+        <div class="col-md-12">
+            <div class="form-group" style="margin-bottom: 5px;">
+            <label class="control-label" for="produto" style="color: black; margin-right: 5px">Produto</label>
+                <div class="form-group col-md-12 col-lg-12">
+                    <select class="custom-select custom-select-sm" style="width: 100%; height: 35px" id="produto"
+                    name="produtoSelected" [(ngModel)]="produtoSelected" *ngIf="!all">
+                        <option *ngFor="let produto of produto" value={{produto.nome}}>
+                            {{produto.nome}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <mat-checkbox name="all" id="all" [(ngModel)]="all" style="color: black; margin-left: 30px;">Todos</mat-checkbox>
+
+    <div class="row" style="margin-left: 15px; margin-right: 15px;">
+        <div class="form-group col-md-6">
+            <label class="control-label required" for="nome" style="color: black; margin-top: 30px;">Data Início</label>
+              <input type="date" class="form-control form-control-sm" autofocus [(ngModel)]="dataInicio" name="dataInicio">
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label required" for="nome" style="color: black; margin-top: 30px;">Data Fim</label>
+              <input type="date" class="form-control form-control-sm" autofocus [(ngModel)]="dataFim" name="dataFim">
+        </div>
+    </div>
+
+    <div class="row" style="margin-left: 15px; margin-right: 15px;">
+        <div class="col-md-2" style="margin-top: 20px;">
+            <button type="submit" class="btn btn-success"> Gerar </button>
+        </div>
+    </div>
+
+</form>

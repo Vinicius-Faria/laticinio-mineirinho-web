@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { X } from 'chart.js/dist/chunks/helpers.core';
-import { endWith } from 'rxjs';
+import { endWith, delay } from 'rxjs';
+import { SaidaService } from '../../service/saidaService';
 
 @Component({
   selector: 'app-grafico',
@@ -12,14 +13,34 @@ export class GraficoComponent implements OnInit {
 
   @ViewChild("canvasQuantidade", { static: true }) elemento!: ElementRef;
 
+  data : any = [];
+  saidaQuantidade : any = [];
+  entradaQuantidade : any = [];
 
-
-  constructor() {
+  constructor(
+    private saidaService: SaidaService
+  ) {
     Chart.register(...registerables);
    }
 
   ngOnInit() {
-    this.graficoQuantidade();
+    this.geraGrafico();
+  }
+
+  geraGrafico(){
+    this.saidaService.getQuantidadeSaida().subscribe(
+      success => {
+        this.data = success.data;
+        this.saidaQuantidade = success.quantidade;
+      },
+    );
+    this.saidaService.getQuantidadeEntrada().subscribe(
+      success => {
+        this.data = success.data;
+        this.entradaQuantidade = success.quantidade;
+        this.graficoQuantidade();
+      },
+    );
   }
 
   graficoQuantidade(){
@@ -27,16 +48,16 @@ export class GraficoComponent implements OnInit {
       type: 'bar',
       
       data: {
-        labels: ["23/11/2022","24/11/2022","25/11/2022","26/11/2022","27/11/2022","28/11/2022","29/11/2022"],
+        labels: this.data,
         datasets: [
           {
             label: 'Saída ',
-            data: [15,20,13,18,35,18.5,20.1],
+            data: this.saidaQuantidade,
             backgroundColor: 'rgb(142, 237, 179)',
           },
           {
-            label: 'Entrada ',
-            data: [10,50,3,2,4.8,22.5,26.9],
+            label: 'Entrada',
+            data: this.entradaQuantidade,
             backgroundColor: 'rgb(254, 103, 1, 0.8)',
           },
         ]

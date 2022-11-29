@@ -133,7 +133,6 @@ export class SaidaComponent implements OnInit {
   }
 
   numeroVenda(){
-    console.log(this.saidaService.getNumeroVenda());
     return this.saidaService.getNumeroVenda();
   }
 }

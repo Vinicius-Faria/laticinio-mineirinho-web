@@ -20,4 +20,12 @@ export class SaidaService{
         return this.http.get(this.url + 'saida/numero')
     }
 
+    getQuantidadeSaida(): Observable<any>{
+        return this.http.get(this.url + 'grafico/saida')
+    }
+
+    getQuantidadeEntrada(): Observable<any>{
+        return this.http.get(this.url + 'grafico/entrada')
+    }
+
 }

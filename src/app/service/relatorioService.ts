@@ -26,4 +26,17 @@ export class RelatorioService{
           });
     }
 
+    getRelatorioEntrada(relatorio: RelatorioSaida): Observable<any>{
+        return this.http.get<any>(this.url + "relatorio/entrada", {
+            headers: this.headers,
+            observe: 'response',
+            params:{
+                nome: relatorio.nome,
+                dataInicio: JSON.stringify(relatorio.dataInicio),
+                dataFim: JSON.stringify(relatorio.dataFim)
+            },
+            responseType: 'blob' as 'json'
+          });
+    }
+
 }

@@ -5,8 +5,9 @@ import { ProdutoComponent } from './screen/produto/produto.component';
 import { EntradaComponent } from './screen/entrada/entrada.component';
 import { ToolbarComponent } from './screen/toolbar/toolbar.component';
 import { SaidaComponent } from './screen/saida/saida.component';
-import { RelatorioComponent } from './screen/relatorio/relatorio.component';
 import { GraficoComponent } from './screen/grafico/grafico.component';
+import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component';
+import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
 
 const routes: Routes = [
   {
@@ -33,13 +34,16 @@ const routes: Routes = [
     component: SaidaComponent,
   },
   {
-    path: 'relatorio',
+    path: 'relatorio-saida',
     component: RelatorioComponent,
-  }
-  ,
+  },
   {
     path: 'grafico',
     component: GraficoComponent,
+  },
+  {
+    path: 'relatorio-entrada',
+    component: RelatorioEntradaComponent,
   }
 ];
 

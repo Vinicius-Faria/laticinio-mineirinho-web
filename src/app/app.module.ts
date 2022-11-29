@@ -25,9 +25,10 @@ import { SaidaComponent } from './screen/saida/saida.component';
 import { MatSelectModule } from '@angular/material/select';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
-import { RelatorioComponent } from './screen/relatorio/relatorio.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { GraficoComponent } from './screen/grafico/grafico.component';
+import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component';
+import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -40,6 +41,7 @@ registerLocaleData(ptBr);
     SaidaComponent,
     RelatorioComponent,
     GraficoComponent,
+    RelatorioEntradaComponent,
   ],
   imports: [
     BrowserModule,

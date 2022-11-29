@@ -6,6 +6,7 @@ import { EntradaComponent } from './screen/entrada/entrada.component';
 import { ToolbarComponent } from './screen/toolbar/toolbar.component';
 import { SaidaComponent } from './screen/saida/saida.component';
 import { RelatorioComponent } from './screen/relatorio/relatorio.component';
+import { GraficoComponent } from './screen/grafico/grafico.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'relatorio',
     component: RelatorioComponent,
+  }
+  ,
+  {
+    path: 'grafico',
+    component: GraficoComponent,
   }
 ];
 

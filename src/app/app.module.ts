@@ -27,6 +27,7 @@ import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { RelatorioComponent } from './screen/relatorio/relatorio.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { GraficoComponent } from './screen/grafico/grafico.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -38,6 +39,7 @@ registerLocaleData(ptBr);
     ToolbarComponent,
     SaidaComponent,
     RelatorioComponent,
+    GraficoComponent,
   ],
   imports: [
     BrowserModule,

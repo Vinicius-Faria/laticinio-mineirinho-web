@@ -7,7 +7,7 @@
   
       <div class="div-sidenav">
         <button routerLink="/produto" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
-          class="button-sidenav">
+          class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-floppy-o"></i> Cadastro
         </button>
       </div>
@@ -18,14 +18,14 @@
   
       <div class="div-sidenav">
         <button routerLink="/entrada" mat-raised-button matTooltip="Entrada no Estoque" matTooltipClass="tooltip-sidebar"
-          class="button-sidenav">
+          class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-plus-square-o"></i> Entrada 
         </button>
       </div>
 
       <div class="div-sidenav">
         <button routerLink="/saida" mat-raised-button matTooltip="Saída do Estoque" matTooltipClass="tooltip-sidebar"
-          class="button-sidenav">
+          class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-minus-square-o"></i> Venda 
         </button>
       </div>
@@ -36,15 +36,15 @@
 
       <div class="div-sidenav">
         <button routerLink="/relatorio-entrada" mat-raised-button matTooltip="Relatório" matTooltipClass="tooltip-sidebar"
-          class="button-sidenav">
+          class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-file-pdf-o"></i> Entrada 
         </button>
       </div>
 
       <div class="div-sidenav">
         <button routerLink="/relatorio-saida" mat-raised-button matTooltip="Relatório" matTooltipClass="tooltip-sidebar"
-          class="button-sidenav">
-          <i class="fa fa-file-pdf-o"></i> Venda 
+          class="button-sidenav" (click)="drawer.close()">
+          <i class="fa fa-file-pdf-o"></i> Saída
         </button>
       </div>
 
@@ -54,7 +54,7 @@
 
       <div class="div-sidenav">
         <button routerLink="/grafico" mat-raised-button matTooltip="Gráfico" matTooltipClass="tooltip-sidebar"
-          class="button-sidenav">
+          class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-bar-chart"></i> Venda 
         </button>
       </div>

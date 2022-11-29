@@ -8,27 +8,29 @@ import { Chart, registerables } from 'chart.js';
 })
 export class GraficoComponent implements OnInit {
 
-  @ViewChild("meuCanvas", { static: true }) elemento!: ElementRef;
+  @ViewChild("canvasQuantidade", { static: true }) elemento!: ElementRef;
+
+
 
   constructor() {
     Chart.register(...registerables);
    }
 
   ngOnInit() {
-    this.grafico();
+    this.graficoQuantidade();
   }
 
-  grafico(){
+  graficoQuantidade(){
     new Chart(this.elemento.nativeElement, {
       type: 'bar',
       
       data: {
-        labels: ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho"],
+        labels: ["23/11/2022","24/11/2022","25/11/2022","26/11/2022","27/11/2022","28/11/2022","29/11/2022"],
         datasets: [
           {
-            label: 'Teste',
-            data: [85,72,86,81,84,86,110],
-            backgroundColor: '#00AEFF',
+            label: 'Produtos Vendidos',
+            data: [15,20,13,18,35,18.5,20.1],
+            backgroundColor: 'rgb(142, 237, 179)',
             borderWidth: 2
           },
         ]

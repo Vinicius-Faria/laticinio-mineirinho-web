@@ -41,6 +41,11 @@ export class ProdutoComponent implements OnInit {
 
   onSubmit(){
 
+    if(!this.produto.quantidade || !this.produto.preco || !this.produto.nome || !this.produto.codigo|| !this.produto.descricao){
+      this.openSnackBar('Preencha todos os campos','OK');
+      return;
+    }
+
     if (!this.produto.id) {
     this.mode = "indeterminate";
       this.service.save(this.produto).subscribe(

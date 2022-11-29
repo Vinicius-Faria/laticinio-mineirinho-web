@@ -30,9 +30,14 @@ export class GraficoComponent implements OnInit {
         labels: ["23/11/2022","24/11/2022","25/11/2022","26/11/2022","27/11/2022","28/11/2022","29/11/2022"],
         datasets: [
           {
-            label: 'Produtos Vendidos',
+            label: 'Saída ',
             data: [15,20,13,18,35,18.5,20.1],
-            backgroundColor: 'rgb(254, 103, 1, 0.5)',
+            backgroundColor: 'rgb(142, 237, 179)',
+          },
+          {
+            label: 'Entrada ',
+            data: [10,50,3,2,4.8,22.5,26.9],
+            backgroundColor: 'rgb(254, 103, 1, 0.8)',
           },
         ]
       },

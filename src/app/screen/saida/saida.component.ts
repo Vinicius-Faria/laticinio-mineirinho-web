@@ -82,7 +82,7 @@ export class SaidaComponent implements OnInit {
 
   atualizaForm(){
     this.saidaForm.nome = this.produtoSelected;
-    this.saidaForm.preco = this.preco;
+    this.saidaForm.preco = String(Number(this.preco));
     this.saidaForm.quantidade = this.quantidade;
     this.saidaForm.totalProd = String((Number(this.preco) * Number(this.quantidade)).toFixed(2)).toString();
   }
@@ -108,6 +108,7 @@ export class SaidaComponent implements OnInit {
 
   alteraPontuacao(){
     this.quantidade = this.quantidade.valueOf().replace(',', '.');
+    this.preco = this.preco.valueOf().replace(',' , '.');
   }
 
   openSnackBar(message: string, action: string) {

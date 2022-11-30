@@ -41,11 +41,17 @@ export class ProdutoComponent implements OnInit {
 
   onSubmit(){
 
+    if(!this.produto.id && !this.produto.quantidade || !this.produto.preco || !this.produto.nome || !this.produto.codigo || !this.produto.descricao || !this.produto.minimo){
+      this.openSnackBar('Preencha todos os campos','OK');
+      return;
+    }
+
+    if(this.produto.id && !this.produto.preco || !this.produto.nome || !this.produto.descricao){
+      this.openSnackBar('Preencha todos os campos','OK');
+      return;
+    }
+
     if (!this.produto.id) {
-      if(!this.produto.quantidade || !this.produto.preco || !this.produto.nome || !this.produto.codigo || !this.produto.descricao || !this.produto.minimo){
-        this.openSnackBar('Preencha todos os campos','OK');
-        return;
-      }
     this.mode = "indeterminate";
       this.service.save(this.produto).subscribe(
         success => {
@@ -66,10 +72,6 @@ export class ProdutoComponent implements OnInit {
         },
       );
     } else {
-      if(!this.produto.preco || !this.produto.nome || !this.produto.descricao){
-        this.openSnackBar('Preencha todos os campos','OK');
-        return;
-      }
       this.service.atualizar(this.produto).subscribe(
         success => {
           if(!success){

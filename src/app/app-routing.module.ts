@@ -8,6 +8,7 @@ import { SaidaComponent } from './screen/saida/saida.component';
 import { GraficoComponent } from './screen/grafico/grafico.component';
 import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component';
 import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
+import { ControleEstoqueComponent } from './screen/controle-estoque/controle-estoque.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'relatorio-entrada',
     component: RelatorioEntradaComponent,
+  },
+  {
+    path: 'controle-estoque',
+    component: ControleEstoqueComponent,
   }
 ];
 

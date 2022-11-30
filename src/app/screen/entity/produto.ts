@@ -5,4 +5,5 @@ export class Produto{
     preco: string = '';
     descricao: string = '';
     quantidade: string = '';
+    minimo: string = '';
   }

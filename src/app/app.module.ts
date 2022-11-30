@@ -30,6 +30,7 @@ import { GraficoComponent } from './screen/grafico/grafico.component';
 import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component';
 import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ControleEstoqueComponent } from './screen/controle-estoque/controle-estoque.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -43,6 +44,7 @@ registerLocaleData(ptBr);
     RelatorioComponent,
     GraficoComponent,
     RelatorioEntradaComponent,
+    ControleEstoqueComponent,
   ],
   imports: [
     BrowserModule,

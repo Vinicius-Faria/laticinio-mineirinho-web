@@ -21,6 +21,10 @@ constructor(private http: HttpClient){}
 
     atualizar(produto: Produto): Observable<any>{
         return this.http.put<Produto>(this.url + `produto/${produto.id}`, produto);
-      }
+    }
+
+    getProdutoControle(): Observable<Produto[]>{
+        return this.http.get<Produto[]>(this.url + 'produto/controle');
+    }
 
 }

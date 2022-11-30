@@ -41,7 +41,7 @@ export class ProdutoComponent implements OnInit {
 
   onSubmit(){
 
-    if(!this.produto.quantidade || !this.produto.preco || !this.produto.nome || !this.produto.codigo|| !this.produto.descricao){
+    if(!this.produto.quantidade || !this.produto.preco || !this.produto.nome || !this.produto.codigo || !this.produto.descricao || !this.produto.minimo){
       this.openSnackBar('Preencha todos os campos','OK');
       return;
     }

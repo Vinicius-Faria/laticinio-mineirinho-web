@@ -1,0 +1,35 @@
+<h2 class="mt-2" style="margin-left: 15px; color: black;">Controle de Estoque</h2>
+
+<hr style="color: black;">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mx-auto my-0" *ngFor="let card of card">
+            <mat-card [ngClass]="{'card': card.minimo === 'false', 'cardError': card.minimo === 'true'}">
+                <mat-card-title-group>
+                    <mat-card-title style="color: #813a00;">{{card.nome}}</mat-card-title>
+                </mat-card-title-group>
+                <mat-card-content>
+                    Quantidade : {{card.quantidade}}
+                </mat-card-content>
+                <mat-card-content>
+                  Preço : {{card.preco}}
+              </mat-card-content>
+                <mat-card-content
+                style="color: #000000; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4; 
+                -webkit-box-orient: vertical;">
+                  Descrição : {{card.descricao}}
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+  </div>
+  
+  <div class="uploader-status" style="margin-top: 15px; margin-left: 50%;">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>

@@ -41,13 +41,8 @@ export class ProdutoComponent implements OnInit {
 
   onSubmit(){
 
-    if(!this.produto.id && !this.produto.quantidade || !this.produto.preco || !this.produto.nome || !this.produto.codigo || !this.produto.descricao || !this.produto.minimo){
-      this.openSnackBar('Preencha todos os campos','OK');
-      return;
-    }
-
-    if(this.produto.id && !this.produto.preco || !this.produto.nome || !this.produto.descricao){
-      this.openSnackBar('Preencha todos os campos','OK');
+    if(!this.produto.id || !this.produto.nome || !this.produto.preco || !this.produto.descricao){
+      this.openSnackBar('Preencha os campos','OK');
       return;
     }
 
@@ -83,6 +78,7 @@ export class ProdutoComponent implements OnInit {
             this.produto.codigo = '';
             this.produto.id = 0;
             this.produto.quantidade = '';
+            this.produto.minimo = '';
             this.refresh();
           }else{
             this.mode = "indeterminate";
@@ -115,5 +111,7 @@ export class ProdutoComponent implements OnInit {
     this.produto.preco = card.preco;
     this.produto.descricao = card.descricao;
     this.produto.codigo = card.codigo;
+    this.produto.minimo = card.minimo;
+    this.produto.quantidade = card.quantidade;
   }
 }

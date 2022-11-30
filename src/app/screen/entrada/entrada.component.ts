@@ -40,6 +40,8 @@ export class EntradaComponent implements OnInit {
     this.produto.id = card.id;
     this.produto.nome = card.nome;
     this.produto.preco = card.preco;
+    this.produto.minimo = card.minimo;
+    this.produto.codigo = card.codigo;
 
     this.produto.descricao = card.descricao;
     window.scrollTo(0,0)
@@ -61,6 +63,8 @@ export class EntradaComponent implements OnInit {
           this.produto.preco = '';
           this.produto.codigo = '';
           this.produto.quantidade = '';
+          this.produto.minimo = '';
+          this.produto.codigo = '';
           this.produto.id = 0;
           this.refresh();
       },

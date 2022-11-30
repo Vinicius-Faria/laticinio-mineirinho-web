@@ -12,10 +12,12 @@ import { SaidaService } from '../../service/saidaService';
 export class GraficoComponent implements OnInit {
 
   @ViewChild("canvasQuantidade", { static: true }) elemento!: ElementRef;
+  @ViewChild("canvasValores", { static: true }) elementoValor!: ElementRef;
 
   data : any = [];
   saidaQuantidade : any = [];
   entradaQuantidade : any = [];
+  valorTotal : any = [];
   loading = false;
 
   constructor(
@@ -43,6 +45,13 @@ export class GraficoComponent implements OnInit {
         this.graficoQuantidade();
       },
     );
+    this.saidaService.getValorSaida().subscribe(
+      success => {
+        this.data = success.data;
+        this.valorTotal = success.quantidade;
+        this.graficoValor();
+      },
+    );
   }
 
   graficoQuantidade(){
@@ -62,6 +71,31 @@ export class GraficoComponent implements OnInit {
             label: 'Entrada',
             data: this.entradaQuantidade,
             backgroundColor: 'rgb(254, 103, 1, 0.8)',
+          },
+        ]
+      },
+      options: {
+        scales:{
+          y:{
+            beginAtZero: true,
+          },
+        }
+      }
+    });
+  }
+
+  graficoValor(){
+    this.loading = false;
+    new Chart(this.elementoValor.nativeElement, {
+      type: 'bar',
+      
+      data: {
+        labels: this.data,
+        datasets: [
+          {
+            label: 'Total',
+            data: this.valorTotal,
+            backgroundColor: 'rgb(142, 237, 179)',
           },
         ]
       },

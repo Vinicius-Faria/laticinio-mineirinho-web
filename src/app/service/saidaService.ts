@@ -27,4 +27,8 @@ export class SaidaService{
     getQuantidadeEntrada(): Observable<any>{
         return this.http.get(this.url + 'grafico/entrada')
     }
+
+    getValorSaida(): Observable<any>{
+        return this.http.get(this.url + 'grafico/valor')
+    }
 }

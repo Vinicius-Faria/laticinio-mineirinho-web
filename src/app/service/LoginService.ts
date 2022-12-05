@@ -7,7 +7,7 @@ import { Login } from '../screen/entity/login';
   providedIn: 'root'
 })
 export class LoginService {
-  url = 'https://laticineo-mineirinho.herokuapp.com/';
+  url = 'https://laticinio-mineirinho.herokuapp.com/';
   urlLocal = 'http://localhost:8080/'
   constructor(private http: HttpClient) { }
 

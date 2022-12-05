@@ -7,7 +7,7 @@ import { RelatorioSaida } from '../screen/entity/relatorioSaida';
     providedIn: 'root'
 })
 export class RelatorioService{
-    url = 'https://laticineo-mineirinho.herokuapp.com/';
+    url = 'https://laticinio-mineirinho.herokuapp.com/';
     urlLocal = 'http://localhost:8080/'
     headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 

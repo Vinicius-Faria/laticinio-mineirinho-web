@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 export class EntradaService{
-    url = 'https://laticineo-mineirinho.herokuapp.com/';
+    url = 'https://laticinio-mineirinho.herokuapp.com/';
     urlLocal = 'http://localhost:8080/'
 constructor(private http: HttpClient){}
 

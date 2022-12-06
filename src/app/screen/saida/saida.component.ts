@@ -25,6 +25,7 @@ export class SaidaComponent implements OnInit {
   bolleanCard = false;
   nVenda = '';
   loading = false;
+  adicionado = true;
 
   constructor(
     private service: ProdutoService,
@@ -58,29 +59,35 @@ export class SaidaComponent implements OnInit {
 
   onSubmit(){
 
-   this.atualizaForm();
+    this.alteraPontuacao();
+    console.log(this.adicionado);
 
-    if(this.card.length > 0){
-      this.card.forEach((element: any) => {
-        if(element.nome === this.saidaForm.nome){
-          this.openSnackBar('Produto já adicionado, retire do carrinho e adcione corretamente','OK');
-          this.bolleanCard = true
-        }
-      });
-    }
+    if(this.adicionado){
+      this.atualizaForm();
 
-    if(!this.bolleanCard){
-      this.saidaForm.venda = this.nVenda;
-      this.card.push({
-        ...this.saidaForm
+      if(this.card.length > 0){
+        this.card.forEach((element: any) => {
+          if(element.nome === this.saidaForm.nome){
+            this.openSnackBar('Produto já adicionado, retire do carrinho e adcione corretamente','OK');
+            this.bolleanCard = true
+          }
         });
-        
-        this.preco = '';
-        this.quantidade = '';
-        this.valorTotal = this.valorTotal + Number(this.saidaForm.totalProd);
-        this.saidaForm.total = String(this.valorTotal.toFixed(2));
+      }
+  
+      if(!this.bolleanCard){
+        this.saidaForm.venda = this.nVenda;
+        this.card.push({
+          ...this.saidaForm
+          });
+          
+          this.preco = '';
+          this.quantidade = '';
+          this.valorTotal = this.valorTotal + Number(this.saidaForm.totalProd);
+          this.saidaForm.total = String(this.valorTotal.toFixed(2));
+      }
+      this.bolleanCard = false;
     }
-    this.bolleanCard = false;
+    this.adicionado = true;
   }
 
   atualizaForm(){
@@ -112,6 +119,15 @@ export class SaidaComponent implements OnInit {
   alteraPontuacao(){
     this.quantidade = this.quantidade.valueOf().replace(',', '.');
     this.preco = this.preco.valueOf().replace(',' , '.');
+
+    this.produto.forEach((element: Produto) => {
+      if(element.nome == this.produtoSelected.toString()){
+        if(this.quantidade > element.quantidade){
+          this.openSnackBar('Produto "' + element.nome + '" com quantidade de "' + element.quantidade + '" no estoque. Não foi possivel adicionar.','OK');
+          this.adicionado = false;
+        }
+      }
+    });
   }
 
   openSnackBar(message: string, action: string) {

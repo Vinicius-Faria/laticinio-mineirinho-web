@@ -26,6 +26,7 @@ export class SaidaComponent implements OnInit {
   nVenda = '';
   loading = false;
   adicionado = true;
+  pagamento = 0;
 
   constructor(
     private service: ProdutoService,
@@ -59,6 +60,16 @@ export class SaidaComponent implements OnInit {
 
   onSubmit(){
 
+    if(!this.produtoSelected || !this.quantidade || !this.preco){
+      this.openSnackBar('Preencha os campos corretamente.','OK');
+      return;
+    }
+
+    if(this.pagamento == 0){
+      this.openSnackBar('Escolha o método de pagamento.','OK');
+      return;
+    }
+
     this.alteraPontuacao();
     if(this.adicionado){
       this.atualizaForm();
@@ -74,6 +85,11 @@ export class SaidaComponent implements OnInit {
   
       if(!this.bolleanCard){
         this.saidaForm.venda = this.nVenda;
+        if(this.pagamento == 1){
+          this.saidaForm.pagamento = 'dinheiro';
+        }else{
+          this.saidaForm.pagamento = 'cartao';
+        }
         this.card.push({
           ...this.saidaForm
           });
@@ -120,7 +136,7 @@ export class SaidaComponent implements OnInit {
 
     this.produto.forEach((element: Produto) => {
       if(element.nome == this.produtoSelected.toString()){
-        if(this.quantidade > element.quantidade){
+        if(Number(this.quantidade) > Number(element.quantidade)){
           this.openSnackBar('Produto "' + element.nome + '" com quantidade de "' + element.quantidade + '" no estoque. Não foi possivel adicionar.','OK');
           this.adicionado = false;
         }
@@ -139,6 +155,12 @@ export class SaidaComponent implements OnInit {
   finalizarSaida(){
     this.loading = true;
 
+    if(this.card.length == 0){
+      this.openSnackBar('Nenhum produto adicionado.','OK');
+      this.loading = false;
+      return;
+    }
+
     this.saidaService.save(this.card).subscribe(
       success => {
           this.openSnackBar('Saída Finalizada','OK');
@@ -149,6 +171,7 @@ export class SaidaComponent implements OnInit {
           this.saidaForm.total = '';
           this.saidaForm.totalProd = '';
           this.valorTotal = 0;
+          this.pagamento = 0;
           this.atualizaNumeroVenda();
       },
     );
@@ -156,5 +179,9 @@ export class SaidaComponent implements OnInit {
 
   numeroVenda(){
     return this.saidaService.getNumeroVenda();
+  }
+
+  tipoPagamento(num: number){
+    this.pagamento = num;
   }
 }

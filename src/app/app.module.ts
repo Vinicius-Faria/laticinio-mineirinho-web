@@ -31,6 +31,7 @@ import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component
 import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ControleEstoqueComponent } from './screen/controle-estoque/controle-estoque.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -64,7 +65,8 @@ registerLocaleData(ptBr);
     MatSidenavModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatChipsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },    

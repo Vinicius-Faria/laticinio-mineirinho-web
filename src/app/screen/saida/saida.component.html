@@ -4,6 +4,18 @@
 
 <h3 class="mt-2" style="margin-left: 15px; color: black;">Venda Numero : {{nVenda}}</h3>
 
+<div class="row">
+    <div class="form-group col-md-6"  style="margin-left: 25px; margin-bottom: 10px;">
+        <label style="color: black; margin-bottom: 3px;">Pagamento :</label>
+        <mat-chip-list>
+            <mat-chip style="background-color: rgb(22, 133, 65);" (click)="tipoPagamento(1)">
+                <i class="fa fa-check" *ngIf="pagamento == 1"></i> Dinheiro </mat-chip>
+            <mat-chip style="background-color: rgb(22, 133, 65);" (click)="tipoPagamento(2)">
+                <i class="fa fa-check" *ngIf="pagamento == 2"></i> Cartão </mat-chip>
+        </mat-chip-list>
+    </div>
+</div>
+
 <form #saidaForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row" style="margin-left: 15px; margin-right: 15px;">
         <div class="col-md-12">
@@ -24,7 +36,7 @@
         <div class="form-group col-md-6">
             <label style="color: black;">Quantidade:</label>
             <input type="text" class="form-control" [(ngModel)]="quantidade" name="quantidade" (click)="updateValues()">
-            <h5 style="color: black">* Ex: 1kg / 0.5kg ou 1 quantidade</h5>
+            <h5 style="color: black">* Ex: 1kg / 0.5kg ou 1 unidade</h5>
         </div>
         <div class="form-group col-md-4">
             <label style="color: black;">Preço:</label>

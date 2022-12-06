@@ -6,4 +6,5 @@ export class Saida{
     totalProd: string = '';
     total: String = '';
     venda: String = '';
+    pagamento : String = '';
   }

@@ -60,8 +60,6 @@ export class SaidaComponent implements OnInit {
   onSubmit(){
 
     this.alteraPontuacao();
-    console.log(this.adicionado);
-
     if(this.adicionado){
       this.atualizaForm();
 

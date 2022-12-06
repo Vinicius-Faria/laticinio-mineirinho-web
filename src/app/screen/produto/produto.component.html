@@ -66,24 +66,34 @@
 
   <h3 style="color: black; margin-top: 30px; margin-left: 15px;">Itens cadastrados</h3>
 
-  <div class="form-group col-md-12 col-lg-12" *ngFor="let card of card">
-    <mat-card class="card" style="margin-bottom: 20px;">
-      <mat-card-title-group>
-        <mat-card-title>{{card.nome}}</mat-card-title>
-        <mat-card-subtitle style="color: black;">
-          Valor : R${{card.preco}}
-        </mat-card-subtitle>
-        <mat-card-subtitle style="color: black;">
-          Quantidade : {{card.quantidade}}
-        </mat-card-subtitle>
-      </mat-card-title-group>
-      <mat-card-content>
-        Descrição : {{card.descricao}}
-      </mat-card-content>
-      <mat-card-actions style="align-items: flex-end;">
-        <button mat-button class="btn" style="background-color: rgb(142, 237, 179); color: black;" (click)="editarCadastro(card)">
-          <i class="fa fa-refresh"></i> Editar
-        </button>
-      </mat-card-actions>
-    </mat-card>
+  <div class="container" style="margin-bottom: 20px;">
+    <div class="row">
+        <div class="col-md-4 mx-auto my-0" *ngFor="let card of card">
+            <mat-card class="card">
+              <mat-card-title-group>
+                <mat-card-title>{{card.nome}}</mat-card-title>
+                <mat-card-subtitle style="color: black;">
+                  Valor : R${{card.preco}}
+                </mat-card-subtitle>
+                <mat-card-subtitle style="color: black;">
+                  Quantidade : {{card.quantidade}}
+                </mat-card-subtitle>
+              </mat-card-title-group>
+              <mat-card-content
+              style="color: #000000; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; 
+                -webkit-box-orient: vertical;">
+                Descrição : {{card.descricao}}
+              </mat-card-content>
+              <mat-card-actions style="align-items: flex-end;">
+                <button mat-button class="btn" style="background-color: rgb(142, 237, 179); color: black;" (click)="editarCadastro(card)">
+                  <i class="fa fa-refresh"></i> Editar
+                </button>
+              </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
   </div>

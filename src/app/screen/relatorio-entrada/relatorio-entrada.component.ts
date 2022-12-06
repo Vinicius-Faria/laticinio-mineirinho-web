@@ -4,6 +4,7 @@ import { ProdutoService } from '../../service/produtoService';
 import { RelatorioService } from '../../service/relatorioService';
 import { Produto } from '../entity/produto';
 import { getContentTypeFromResponse, saveFile } from '../util/file-download-util';
+import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-relatorio-entrada',
@@ -18,11 +19,13 @@ export class RelatorioEntradaComponent implements OnInit {
   dataInicio = "";
   dataFim = "";
   relatorioSaida: RelatorioSaida;
-  loading = false
+  loading = false;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
 
   constructor(
     private service: ProdutoService,
     private serviceRelatorio: RelatorioService,
+    private _snackBar: MatSnackBar
   ) {
     this.produto = new Produto();
     this.relatorioSaida= new RelatorioSaida();
@@ -37,8 +40,14 @@ export class RelatorioEntradaComponent implements OnInit {
   }
 
   onSubmit(){
-
     this.loading = true;
+
+    if(!this.dataFim || !this.dataInicio){
+      this.openSnackBar('Data Inválida','OK');
+      this.loading = false;
+      return;
+    }
+
     if(this.all === true){
       this.relatorioSaida.nome = 'Todos';
       this.relatorioSaida.dataInicio = this.dataInicio;
@@ -60,6 +69,14 @@ export class RelatorioEntradaComponent implements OnInit {
       }
     )
 
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 5 * 1000,
+      horizontalPosition: this.horizontalPosition,
+      panelClass: 'panelClass'
+    });
   }
 
 }

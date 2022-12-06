@@ -15,7 +15,7 @@ import { delay } from 'rxjs';
 export class SaidaComponent implements OnInit {
 
   card: Array<Saida>;
-  produto: any = [];
+  produto: Produto[] = [];
   produtoSelected = '';
   quantidade = '';
   preco = '';
@@ -31,7 +31,6 @@ export class SaidaComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private saidaService: SaidaService
   ) { 
-    this.produto = new Produto();
     this.saidaForm = new Saida();
     this.card = new Array<Saida>();
   }
@@ -39,7 +38,11 @@ export class SaidaComponent implements OnInit {
   async ngOnInit() {
     try {
       this.loading = true;
-      this.produto = await this.service.getProduto().toPromise();
+      this.loading = true;
+      this.service.getProduto().subscribe(
+        resposta => this.produto = resposta
+      )
+      this.loading = false;
       this.atualizaNumeroVenda();
     } catch (error) {}
   }

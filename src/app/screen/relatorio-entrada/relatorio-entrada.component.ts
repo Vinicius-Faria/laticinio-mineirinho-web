@@ -13,7 +13,7 @@ import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material/sn
 })
 export class RelatorioEntradaComponent implements OnInit {
 
-  produto: any = [];
+  produto: Produto[] = [];
   produtoSelected = '';
   all = false;
   dataInicio = "";
@@ -27,14 +27,15 @@ export class RelatorioEntradaComponent implements OnInit {
     private serviceRelatorio: RelatorioService,
     private _snackBar: MatSnackBar
   ) {
-    this.produto = new Produto();
     this.relatorioSaida= new RelatorioSaida();
    }
 
    async ngOnInit() {
     try {
       this.loading = true;
-      this.produto = await this.service.getProduto().toPromise();
+      this.service.getProduto().subscribe(
+        resposta => this.produto = resposta
+      )
       this.loading = false;
     } catch (error) {}
   }

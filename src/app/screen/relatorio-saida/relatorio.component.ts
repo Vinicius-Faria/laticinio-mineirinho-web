@@ -43,12 +43,6 @@ export class RelatorioComponent implements OnInit {
   onSubmit(){
     this.loading = true;
 
-    if(!this.dataFim || !this.dataInicio){
-      this.openSnackBar('Data Inválida','OK');
-      this.loading = false;
-      return;
-    }
-
     if(this.all === true){
       this.relatorioSaida.nome = 'Todos';
       this.relatorioSaida.dataInicio = this.dataInicio;
@@ -57,6 +51,18 @@ export class RelatorioComponent implements OnInit {
       this.relatorioSaida.nome = this.produtoSelected;
       this.relatorioSaida.dataInicio = this.dataInicio;
       this.relatorioSaida.dataFim = this.dataFim;
+    }
+
+    if(!this.relatorioSaida.nome){
+      this.openSnackBar('Selecione um produto ou todos','OK');
+      this.loading = false;
+      return;
+    }
+
+    if(!this.dataFim || !this.dataInicio){
+      this.openSnackBar('Data Inválida','OK');
+      this.loading = false;
+      return;
     }
 
     this.serviceRelatorio.getRelatorioVenda(this.relatorioSaida).subscribe(

@@ -1,18 +1,17 @@
     <div class="container" style="height: 80%">
         <br><br><br><br><br>
         <div class="card card-container">
-            <h1 class='login_title text-center'>Portal de controle</h1>
+            <h1 class='login_title text-center'>Empório Mineirinho</h1>
             <hr>
     
             <form class="form-signin" #loginForm="ngForm" (ngSubmit)="onSubmit()">
                 <span id="reauth-email" class="reauth-email"></span>
                 <p class="input_title">Login</p>
                 <input type="text" class="form-control" [(ngModel)]="login.login" placeholder="Login" required
-                    autofocus name="login">
+                    autofocus name="login" style="border-radius: 15px;">
                 <p class="input_title">Senha</p>
                 <input type="password" class="form-control" [(ngModel)]="login.senha" placeholder="******"
-                    required name="senha">
-    
+                    required name="senha" style="border-radius: 15px;">
                     <br>
                 <button class="btn btn-lg" type="submit">Entrar</button>
                 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>

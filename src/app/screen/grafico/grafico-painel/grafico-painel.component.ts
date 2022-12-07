@@ -28,17 +28,22 @@ export class GraficoPainelComponent implements OnInit {
   }
 
   geraGrafico(){
+    this.loading = true;
     this.saidaService.getPagamentoDinheiro().subscribe(
       success => {
-        this.data = success.data;
+        setTimeout(() => {
+          this.data = success.data;
         this.pagamentoDinheiro = success.quantidade;
+        }, 1000)
       },
     );
     this.saidaService.getPagamentoCartao().subscribe(
       success => {
-        this.data = success.data;
-        this.pagamentoCartao = success.quantidade;
-        this.graficoValor();
+        setTimeout(() => {
+          this.data = success.data;
+          this.pagamentoCartao = success.quantidade;
+          this.graficoValor();
+        }, 1500)
       },
     );
   }

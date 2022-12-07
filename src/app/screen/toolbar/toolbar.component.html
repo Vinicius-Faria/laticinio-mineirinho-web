@@ -1,8 +1,11 @@
 <mat-drawer-container class="container-drawer" autosize [hasBackdrop]="true">
     <mat-drawer #drawer class="drawer-sidenav" mode="over">
-  
-      <div class="title">
-        <h2 style="color: black;" (click)="drawer.close()" routerLink="/painel">Painel de Controle</h2>
+
+      <div class="btn">
+        <button routerLink="/painel" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
+          class="btn" (click)="drawer.close()" style="font-size: 20px; background-color: rgb(142, 237, 179); border: 0px;">
+          <i class="fa fa-tachometer"></i> Painel de Controle
+        </button>
       </div>
 
       <div class="title">

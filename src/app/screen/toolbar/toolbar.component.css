@@ -26,7 +26,10 @@ color: black;
 }
 
 .drawer-sidenav {
-  padding: 5%;
+  margin: 10px;
+  margin-left: 15px;
+  padding: 2%;
+  border-radius: 25px;
   background-color: rgb(142, 237, 179);
 }
 

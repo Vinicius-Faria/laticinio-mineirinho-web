@@ -45,7 +45,7 @@ export class SaidaService{
     }
 
     getUltimaVenda(): Observable<any>{
-        return this.http.get(this.urlLocal + 'saida/ultima-venda')
+        return this.http.get(this.url + 'saida/ultima-venda')
     }
 
 }

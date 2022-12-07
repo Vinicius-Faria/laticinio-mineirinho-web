@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../../service/produtoService';
 import { Produto } from '../entity/produto';
+import { SaidaService } from '../../service/saidaService';
 
 @Component({
   selector: 'app-painel-controle',
@@ -10,17 +11,22 @@ import { Produto } from '../entity/produto';
 export class PainelControleComponent implements OnInit {
 
   produto: Produto[] = [];
+  saida: Produto[] = [];
   loading = false;
 
   constructor(
-    private serviceproduto : ProdutoService,
+    private serviceProduto : ProdutoService,
+    private serviceSaida : SaidaService
   ) { }
 
   async ngOnInit() {
     try {
       this.loading = true;
-      this.serviceproduto.getProdutoList().subscribe(
+      this.serviceProduto.getProdutoList().subscribe(
         resposta => this.produto = resposta
+      );
+      this.serviceSaida.getUltimaVenda().subscribe(
+        resposta => this.saida = resposta
       );
       this.loading = false;
     } catch (error) {}

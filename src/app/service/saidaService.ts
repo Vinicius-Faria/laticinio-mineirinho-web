@@ -43,4 +43,9 @@ export class SaidaService{
     getPagamentoCartao(): Observable<any>{
         return this.http.get(this.url + 'grafico/cartao')
     }
+
+    getUltimaVenda(): Observable<any>{
+        return this.http.get(this.urlLocal + 'saida/ultima-venda')
+    }
+
 }

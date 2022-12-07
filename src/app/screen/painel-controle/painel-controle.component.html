@@ -1,0 +1,63 @@
+<h1 class="mt-2" style="margin-left: 15px; color: black;">Painel de controle</h1>
+
+<hr style="color: black;">
+
+<div class="row" style="margin-left: 15px;">
+    <div class=" col-md-6">
+        <h2 class="mt-2" style="color: black;">Atalhos</h2>
+        <div class="col-md-12 col-lg-12" style="margin-bottom: 10px;">
+            <button type="button" 
+                    class="button"   
+                    style="width: 170px; height: 100px; border-radius: 25px; margin-right: 20px;"
+                    [routerLink]="'/saida'">
+                    <i class="fa fa-usd"></i> Vendas
+            </button>
+            <button type="button" 
+                    class="button"   
+                    style="width: 170px; height: 100px; border-radius: 25px;margin-right: 20px;"
+                    [routerLink]="'/entrada'"> 
+                    <i class="fa fa-plus-square-o"></i> Entrada
+            </button>   
+            <button type="button" 
+                    class="button"   
+                    style="width: 170px; height: 100px; border-radius: 25px;margin-right: 20px;"
+                    [routerLink]="'/controle-estoque'"> 
+                    <i class="fa fa-th"></i> Estoque
+            </button>
+            <button type="button" 
+                    class="button"   
+                    style="width: 170px; height: 100px; border-radius: 25px;"
+                    [routerLink]="'/grafico'"> 
+                    <i class="fa fa-bar-chart"></i> Grafico
+            </button>                    
+        </div>
+    </div>
+    <div class=" col-md-6">
+        <h2 class="mt-2" style="color: black;">Produtos</h2>
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th style="text-align:center">ID</th>
+                    <th style="text-align:center">Produto</th>
+                    <th style="text-align:center">Estoque</th>
+                    <th style="text-align:center">Preço (R$)</th>
+                </tr>
+            </thead>
+            <tBody>
+                <tr *ngFor="let produto of produto">
+                    <td style="text-align:center">{{ produto.id }}</td>
+                    <td style="text-align:center">{{ produto.nome }}</td>
+                    <td style="text-align:center">{{ produto.quantidade }}</td>
+                    <td style="text-align:center">{{ produto.preco }}</td>
+                    <td>
+
+                    </td>
+                </tr>
+            </tBody>
+        </table>
+    </div>
+</div>
+
+<div class="uploader-status" style="margin-top: 15px; margin-left: 50%;">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>

@@ -1,0 +1,29 @@
+/* mat-grid-tile {
+    background: lightblue;
+  } */
+
+  .button {
+    box-shadow: 10px 5px 5px rgb(142, 237, 179);
+    background-color: rgba(159, 224, 184, 0.387);
+    color: black;
+    font-size: 23px;
+  }
+
+  table {
+    width: 95%;
+    background-color: rgba(159, 224, 184, 0.387);
+    box-shadow: 10px 5px 5px rgb(142, 237, 179);
+    color: black;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(159, 224, 184, 0.965);
+  }
+
+  .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #FE6701;
+}
+
+mat-spinner {
+    zoom: 0.5
+}

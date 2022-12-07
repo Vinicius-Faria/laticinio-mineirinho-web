@@ -9,6 +9,7 @@ import { GraficoComponent } from './screen/grafico/grafico.component';
 import { RelatorioComponent } from './screen/relatorio-saida/relatorio.component';
 import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-entrada.component';
 import { ControleEstoqueComponent } from './screen/controle-estoque/controle-estoque.component';
+import { PainelControleComponent } from './screen/painel-controle/painel-controle.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'controle-estoque',
     component: ControleEstoqueComponent,
+  },
+  {
+    path: 'painel',
+    component: PainelControleComponent,
   }
 ];
 

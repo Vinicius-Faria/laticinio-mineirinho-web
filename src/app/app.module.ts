@@ -32,6 +32,9 @@ import { RelatorioEntradaComponent } from './screen/relatorio-entrada/relatorio-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ControleEstoqueComponent } from './screen/controle-estoque/controle-estoque.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { PainelControleComponent } from './screen/painel-controle/painel-controle.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -46,6 +49,7 @@ registerLocaleData(ptBr);
     GraficoComponent,
     RelatorioEntradaComponent,
     ControleEstoqueComponent,
+    PainelControleComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ registerLocaleData(ptBr);
     MatSelectModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },    

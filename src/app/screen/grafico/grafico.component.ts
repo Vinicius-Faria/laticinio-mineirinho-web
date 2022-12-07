@@ -34,22 +34,28 @@ export class GraficoComponent implements OnInit {
   geraGrafico(){
     this.saidaService.getQuantidadeSaida().subscribe(
       success => {
-        this.data = success.data;
-        this.saidaQuantidade = success.quantidade;
+        setTimeout(() => {
+          this.data = success.data;
+          this.saidaQuantidade = success.quantidade;
+        }, 1000)
       },
     );
     this.saidaService.getQuantidadeEntrada().subscribe(
       success => {
-        this.data = success.data;
-        this.entradaQuantidade = success.quantidade;
-        this.graficoQuantidade();
+        setTimeout(() => {
+          this.data = success.data;
+          this.entradaQuantidade = success.quantidade;
+          this.graficoQuantidade();
+        }, 1500)
       },
     );
     this.saidaService.getValorSaida().subscribe(
       success => {
-        this.data = success.data;
-        this.valorTotal = success.quantidade;
-        this.graficoValor();
+        setTimeout(() => {
+          this.data = success.data;
+          this.valorTotal = success.quantidade;
+          this.graficoValor();
+        }, 1000)
       },
     );
   }

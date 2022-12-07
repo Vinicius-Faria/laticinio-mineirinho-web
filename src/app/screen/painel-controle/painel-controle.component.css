@@ -27,3 +27,8 @@
 mat-spinner {
     zoom: 0.5
 }
+
+.card{
+  background-color: rgb(247, 247, 247);
+  box-shadow: 10px 5px 5px rgb(211, 211, 211);
+}

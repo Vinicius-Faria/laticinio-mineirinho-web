@@ -2,7 +2,7 @@
     <mat-drawer #drawer class="drawer-sidenav" mode="over">
   
       <div class="title">
-        <h2 style="color: black;" routerLink="/painel">Painel de Controle</h2>
+        <h2 style="color: black;" (click)="drawer.close()" routerLink="/painel">Painel de Controle</h2>
       </div>
 
       <div class="title">

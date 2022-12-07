@@ -10,9 +10,8 @@
   }
 
   table {
-    width: 95%;
+    width: 100%;
     background-color: rgba(159, 224, 184, 0.387);
-    box-shadow: 10px 5px 5px rgb(142, 237, 179);
     color: black;
   }
 

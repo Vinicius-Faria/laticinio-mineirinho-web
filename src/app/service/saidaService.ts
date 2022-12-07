@@ -31,4 +31,16 @@ export class SaidaService{
     getValorSaida(): Observable<any>{
         return this.http.get(this.url + 'grafico/valor')
     }
+
+    get(): Observable<any>{
+        return this.http.get(this.url + 'grafico/entrada')
+    }
+
+    getPagamentoDinheiro(): Observable<any>{
+        return this.http.get(this.urlLocal + 'grafico/dinheiro')
+    }
+
+    getPagamentoCartao(): Observable<any>{
+        return this.http.get(this.urlLocal + 'grafico/cartao')
+    }
 }

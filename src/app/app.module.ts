@@ -35,6 +35,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { PainelControleComponent } from './screen/painel-controle/painel-controle.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
+import { GraficoPainelComponent } from './screen/grafico/grafico-painel/grafico-painel.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -50,6 +51,7 @@ registerLocaleData(ptBr);
     RelatorioEntradaComponent,
     ControleEstoqueComponent,
     PainelControleComponent,
+    GraficoPainelComponent,
   ],
   imports: [
     BrowserModule,

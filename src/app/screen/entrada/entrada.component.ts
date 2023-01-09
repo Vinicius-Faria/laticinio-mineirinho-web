@@ -54,6 +54,11 @@ export class EntradaComponent implements OnInit {
 
   onSubmit(){
 
+    if(this.produto.quantidade == '' || this.produto.quantidade == null){
+      this.openSnackBar('Entrada sem nenhum valor','OK');
+      return;
+    }
+
     this.loading = true;
     this.serviceEntrada.save(this.produto).subscribe(
       success => {

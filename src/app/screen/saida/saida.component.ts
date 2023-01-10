@@ -27,6 +27,7 @@ export class SaidaComponent implements OnInit {
   loading = false;
   adicionado = true;
   pagamento = 0;
+  estoque = '';
 
   constructor(
     private service: ProdutoService,
@@ -116,6 +117,7 @@ export class SaidaComponent implements OnInit {
     this.produto.forEach((element: Produto) => {
       if(element.nome == this.produtoSelected.toString()){
         this.preco = element.preco;
+        this.estoque = element.quantidade;
       }
     });
 

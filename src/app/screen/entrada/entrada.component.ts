@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../../service/produtoService';
 import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
 import { Produto } from '../entity/produto';
 import { EntradaService } from '../../service/entradaService';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-entrada',
@@ -14,9 +13,12 @@ import { EntradaService } from '../../service/entradaService';
 export class EntradaComponent implements OnInit {
 
   card: any = [];
+  cardCompleto : any = [];
   produto: Produto;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   loading = false;
+  searchByName = '';
+  backList : Boolean = false;
 
   constructor(
     private service: ProdutoService,
@@ -30,6 +32,10 @@ export class EntradaComponent implements OnInit {
     try {
       this.loading = true;
       this.card = await this.service.getProduto().toPromise();
+
+      delay(300);
+      this.cardCompleto = await this.card;
+
       this.loading = false;
     } catch (error) {
       
@@ -83,6 +89,46 @@ export class EntradaComponent implements OnInit {
       horizontalPosition: this.horizontalPosition,
       panelClass: 'panelClass'
     });
+  }
+
+  onSearch(string : String){
+
+    let cardSearch = new  Array();
+    if(string == ''){
+      this.openSnackBar('Digite uma palavra para usar como filtro.','OK');
+      return;
+    }
+
+    this.card = null;
+    this.loading = true;
+
+    this.cardCompleto.forEach(async (element : Produto) => {
+      if(element.nome.toUpperCase().includes(string.toString().toUpperCase())){
+          cardSearch.push(element);
+          this.backList = true;
+        }
+    });
+
+    this.card = cardSearch;
+    if(this.card == null || this.card.length == 0 ){
+      this.openSnackBar('Não foi possivel encontrar nenhum produto com : ' + string,'OK');
+      this.loading = false;
+      this.card = this.cardCompleto;
+      this.backList = false;
+      return;
+    }
+
+    this.loading = false;
+  }
+
+  onBackList(){
+    this.searchByName = '';
+    this.card = this.cardCompleto;
+    this.backList = false;
+  }
+
+  onExit(){
+    this.produto.id = 0;
   }
 
 }

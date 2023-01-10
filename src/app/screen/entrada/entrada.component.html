@@ -26,43 +26,6 @@
   </div>
 </div>
 
-<div class="col-md-6 mx-auto my-0" style="background-color: rgb(142, 237, 179); margin-left: 15px; border-radius: 15px 50px;" *ngIf="produto.id">
-  <form #fornecedorForm="ngForm" (ngSubmit)="onSubmit()" >
-    <div class="row" style="margin-left: 15px;">
-      <div class="col-md-12">
-
-        <h2 class="mt-2">{{produto.nome}}</h2>
-
-        <div class="form-group" style="margin-bottom: 5px;">
-          <label style="color: black;">Quantidade a adcionar:</label>
-          <input type="number" class="form-control" [(ngModel)]="produto.quantidade" name="quantidade">
-        </div>
-
-        <div class="form-group" style="margin-bottom: 5px;">
-          <label style="color: black;">Preço:</label>
-          <input type="number" class="form-control" [(ngModel)]="produto.preco" name="preco">
-        </div>
-
-        <div class="row" style="margin-top: 10px;">
-
-          <div class="col-md-2">
-            <button type="submit" class="btn" style="margin-bottom: 10px; background-color: #e8b2b2; color: black;" (click)="onExit()">
-              <i class="fa fa-exclamation-triangle"></i> Sair
-            </button>
-          </div>
-
-          <div class="col-md-2">
-            <button type="submit" class="btn" style="margin-bottom: 10px; background-color: #B2E7E8; color: black;">
-              <i class="fa fa-save"></i> Salvar
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-
 <div class="container">
   <div class="row">
       <div class="col-md-4 mx-auto my-0" *ngFor="let card of card">

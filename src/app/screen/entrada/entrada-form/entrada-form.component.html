@@ -1,0 +1,27 @@
+<h2 style="color: #813a00;">Produto : {{data.nome}}</h2>
+
+<div style="margin-bottom: 5px;">
+    <label style="color: black; margin-bottom: 3px;">Quantidade a adcionar:</label>
+    <input type="number" class="form-control"  name="quantidade" [(ngModel)]="quantidade">
+</div>
+
+<div style="margin-bottom: 5px;">
+    <label style="color: black; margin-bottom: 3px;">preço:</label>
+    <input type="number" class="form-control" name="preco" [(ngModel)]="preco">
+</div>
+
+<div class="row col-md-6" style="margin-top: 10px;">
+
+    <div class="col-md-6">
+        <button type="submit" class="btn" style="margin-bottom: 10px; background-color: #e8b2b2; color: black;"  [mat-dialog-close]="">
+            <i class="fa fa-exclamation-triangle"></i> Sair
+        </button>
+        </div>
+
+        <div class="col-md-6">
+        <button type="submit" class="btn" style="margin-bottom: 10px; background-color: #B2E7E8; color: black;" (click)="onSave()" [mat-dialog-close]="data">
+            <i class="fa fa-save"></i> Salvar
+        </button>
+        </div>
+
+</div>

@@ -4,6 +4,18 @@ import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/sn
 import { Produto } from '../entity/produto';
 import { EntradaService } from '../../service/entradaService';
 import { delay } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { EntradaFormComponent } from './entrada-form/entrada-form.component';
+
+export interface DialogData {
+  id: string,
+  nome: string,
+  preco: string,
+  minimo: string,
+  codigo: string,
+  quantidade: string,
+  descricao: string
+}
 
 @Component({
   selector: 'app-entrada',
@@ -23,7 +35,8 @@ export class EntradaComponent implements OnInit {
   constructor(
     private service: ProdutoService,
     private serviceEntrada: EntradaService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog:MatDialog
   ) {
     this.produto = new Produto();
   }
@@ -43,14 +56,32 @@ export class EntradaComponent implements OnInit {
   }
 
   adcionarEstoque(card: any) {
-    this.produto.id = card.id;
-    this.produto.nome = card.nome;
-    this.produto.preco = card.preco;
-    this.produto.minimo = card.minimo;
-    this.produto.codigo = card.codigo;
 
-    this.produto.descricao = card.descricao;
-    window.scrollTo(0,0)
+    const dialogRef = this.dialog.open(EntradaFormComponent, {
+      data: {
+        id: card.id,
+        nome: card.nome,
+        preco: card.preco,
+        minimo: card.minimo,
+        codigo: card.codigo,
+        descricao: card.descricao
+      },
+      panelClass: 'custom-dialog-container',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.produto.id = result.id;
+        this.produto.nome = result.nome;
+        this.produto.preco = result.preco;
+        this.produto.minimo = result.minimo;
+        this.produto.codigo = result.codigo;
+        this.produto.quantidade = result.quantidade;
+        this.produto.descricao = result.descricao;
+        this.onSubmit();
+      }
+    });
+
   }
 
   async refresh() {

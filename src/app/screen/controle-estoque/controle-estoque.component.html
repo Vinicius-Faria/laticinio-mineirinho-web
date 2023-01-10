@@ -2,6 +2,30 @@
 
 <hr style="color: black;">
 
+<div class="container">
+  <div class="row">
+
+    <label style="color: black;">Pesquisar produto:</label>
+
+    <div class="col-md-6" style="margin-bottom: 5px;">
+      <input type="text" class="form-control" [(ngModel)]="searchByName" placeholder="Nome do Produto">
+    </div>
+
+    <div class="col-md-2">
+      <button type="submit" class="btn" style="background-color: #B2E7E8; color: black;" (click)="onSearch(searchByName)">
+        <i class="fa fa-search"></i> Buscar
+      </button>
+    </div>
+
+    <div class="col-md-2" *ngIf="backList">
+      <button type="submit" class="btn" style="background-color: #B2E7E8; color: black;" (click)="onBackList()">
+        <i class="fa fa-backward"></i> Lista Completa
+      </button>
+    </div>
+    
+  </div>
+</div>
+
 
 <div class="container">
     <div class="row">

@@ -24,6 +24,7 @@
     "@fortawesome/angular-fontawesome": "^0.10.1",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0",
     "@ngmodule/material-carousel": "^0.6.0",
+    "@vercel/analytics": "^0.1.6",
     "angular-carousel": "^1.1.0",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.1.3",

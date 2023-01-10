@@ -36,6 +36,8 @@ import { PainelControleComponent } from './screen/painel-controle/painel-control
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { GraficoPainelComponent } from './screen/grafico/grafico-painel/grafico-painel.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EntradaFormComponent } from './screen/entrada/entrada-form/entrada-form.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -52,6 +54,7 @@ registerLocaleData(ptBr);
     ControleEstoqueComponent,
     PainelControleComponent,
     GraficoPainelComponent,
+    EntradaFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ registerLocaleData(ptBr);
     MatProgressSpinnerModule,
     MatChipsModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },    

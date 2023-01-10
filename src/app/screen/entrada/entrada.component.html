@@ -2,6 +2,30 @@
 
 <hr style="color: black;">
 
+<div class="col-md-6 mx-auto my-0">
+  <div class="row">
+
+    <label style="color: black;">Pesquisar produto:</label>
+
+    <div class="col-md-8" style="margin-bottom: 5px;">
+      <input type="text" class="form-control" [(ngModel)]="searchByName" placeholder="Nome do Produto">
+    </div>
+
+    <div class="col-md-2">
+      <button type="submit" class="btn" style="background-color: #B2E7E8; color: black;" (click)="onSearch(searchByName)">
+        <i class="fa fa-search"></i> Buscar
+      </button>
+    </div>
+
+    <div class="col-md-2" *ngIf="backList">
+      <button type="submit" class="btn" style="background-color: #B2E7E8; color: black;" (click)="onBackList()">
+        <i class="fa fa-backward"></i> Lista Completa
+      </button>
+    </div>
+    
+  </div>
+</div>
+
 <div class="col-md-6 mx-auto my-0" style="background-color: rgb(142, 237, 179); margin-left: 15px; border-radius: 15px 50px;" *ngIf="produto.id">
   <form #fornecedorForm="ngForm" (ngSubmit)="onSubmit()" >
     <div class="row" style="margin-left: 15px;">
@@ -19,10 +43,21 @@
           <input type="number" class="form-control" [(ngModel)]="produto.preco" name="preco">
         </div>
 
-        <button type="submit" class="btn" style="margin-bottom: 10px; margin-left: 87.9%; background-color: #B2E7E8; color: black;">
-          <i class="fa fa-save"></i> Salvar
-        </button>
+        <div class="row" style="margin-top: 10px;">
 
+          <div class="col-md-2">
+            <button type="submit" class="btn" style="margin-bottom: 10px; background-color: #e8b2b2; color: black;" (click)="onExit()">
+              <i class="fa fa-exclamation-triangle"></i> Sair
+            </button>
+          </div>
+
+          <div class="col-md-2">
+            <button type="submit" class="btn" style="margin-bottom: 10px; background-color: #B2E7E8; color: black;">
+              <i class="fa fa-save"></i> Salvar
+            </button>
+          </div>
+
+        </div>
       </div>
     </div>
   </form>

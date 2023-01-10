@@ -18,7 +18,7 @@
 
 <form #saidaForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row" style="margin-left: 15px; margin-right: 15px;">
-        <div class="col-md-12">
+        <div class="col-md-11">
             <div class="form-group" style="margin-bottom: 5px;">
             <label class="control-label" for="produto" style="color: black; margin-right: 5px">Produto</label>
                 <div class="form-group col-md-12 col-lg-12">
@@ -29,6 +29,12 @@
                         </option>
                     </select>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group" style="margin-bottom: 5px;">
+            <label class="control-label" for="produto" style="color: black; margin-right: 5px">Estoque</label>
+            <input type="text" class="form-control" [(ngModel)]="estoque" name="estoque" disabled="true">
             </div>
         </div>
     </div>

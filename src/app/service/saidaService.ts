@@ -13,39 +13,39 @@ export class SaidaService{
     constructor(private http: HttpClient){}
 
     save(saida: Array<Saida>): Observable<any> {
-        return this.http.post<Saida>(this.url + 'saida', saida)
+        return this.http.post<Saida>(this.urlLocal + 'saida', saida)
     }
 
     getNumeroVenda(): Observable<any>{
-        return this.http.get(this.url + 'saida/numero')
+        return this.http.get(this.urlLocal + 'saida/numero')
     }
 
     getQuantidadeSaida(): Observable<any>{
-        return this.http.get(this.url + 'grafico/saida')
+        return this.http.get(this.urlLocal + 'grafico/saida')
     }
 
     getQuantidadeEntrada(): Observable<any>{
-        return this.http.get(this.url + 'grafico/entrada')
+        return this.http.get(this.urlLocal + 'grafico/entrada')
     }
 
     getValorSaida(): Observable<any>{
-        return this.http.get(this.url + 'grafico/valor')
+        return this.http.get(this.urlLocal + 'grafico/valor')
     }
 
     get(): Observable<any>{
-        return this.http.get(this.url + 'grafico/entrada')
+        return this.http.get(this.urlLocal + 'grafico/entrada')
     }
 
     getPagamentoDinheiro(): Observable<any>{
-        return this.http.get(this.url + 'grafico/dinheiro')
+        return this.http.get(this.urlLocal + 'grafico/dinheiro')
     }
 
     getPagamentoCartao(): Observable<any>{
-        return this.http.get(this.url + 'grafico/cartao')
+        return this.http.get(this.urlLocal + 'grafico/cartao')
     }
 
     getUltimaVenda(): Observable<any>{
-        return this.http.get(this.url + 'saida/ultima-venda')
+        return this.http.get(this.urlLocal + 'saida/ultima-venda')
     }
 
 }

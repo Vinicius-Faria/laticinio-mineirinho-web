@@ -20,41 +20,49 @@ const routes: Routes = [
     path: "", redirectTo: "/login", pathMatch: "full"
   },
   {
-    path: 'produto',
-    component: ProdutoComponent,
-  },
-  {
-    path: 'entrada',
-    component: EntradaComponent,
-  },
-  {
-    path: 'toolbar',
+    path: 'master',
     component: ToolbarComponent,
-  },
-  {
-    path: 'saida',
-    component: SaidaComponent,
-  },
-  {
-    path: 'relatorio-saida',
-    component: RelatorioComponent,
-  },
-  {
-    path: 'grafico',
-    component: GraficoComponent,
-  },
-  {
-    path: 'relatorio-entrada',
-    component: RelatorioEntradaComponent,
-  },
-  {
-    path: 'controle-estoque',
-    component: ControleEstoqueComponent,
-  },
-  {
-    path: 'painel',
-    component: PainelControleComponent,
+    children:[
+      {
+        path: 'painel',
+        component: PainelControleComponent
+      },
+      {
+        path: 'produto',
+        component: ProdutoComponent,
+      },
+      {
+        path: 'entrada',
+        component: EntradaComponent,
+      },
+      {
+        path: 'toolbar',
+        component: ToolbarComponent,
+      },
+      {
+        path: 'saida',
+        component: SaidaComponent,
+      },
+      {
+        path: 'relatorio-saida',
+        component: RelatorioComponent,
+      },
+      {
+        path: 'grafico',
+        component: GraficoComponent,
+      },
+      {
+        path: 'relatorio-entrada',
+        component: RelatorioEntradaComponent,
+      },
+      {
+        path: 'controle-estoque',
+        component: ControleEstoqueComponent,
+      },
+    ]
   }
+  
+  
 ];
 
 @NgModule({

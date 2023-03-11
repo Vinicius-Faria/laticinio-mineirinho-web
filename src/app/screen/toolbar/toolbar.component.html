@@ -2,7 +2,7 @@
     <mat-drawer #drawer class="drawer-sidenav" mode="over">
 
       <div class="btn">
-        <button routerLink="/painel" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/painel" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
           class="btn" (click)="drawer.close()" style="font-size: 20px; background-color: rgb(142, 237, 179); border: 0px;">
           <i class="fa fa-tachometer"></i> Painel de Controle
         </button>
@@ -13,7 +13,7 @@
       </div>
   
       <div class="div-sidenav">
-        <button routerLink="/produto" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/produto" mat-raised-button matTooltip="Cadastro de produto" matTooltipClass="tooltip-sidebar"
           class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-floppy-o"></i> Cadastro
         </button>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="div-sidenav">
-        <button routerLink="/controle-estoque" mat-raised-button matTooltip="Controle no Estoque" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/controle-estoque" mat-raised-button matTooltip="Controle no Estoque" matTooltipClass="tooltip-sidebar"
           class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-th"></i> Controle 
         </button>
@@ -38,7 +38,7 @@
       </div>
 
       <div class="div-sidenav">
-        <button routerLink="/saida" mat-raised-button matTooltip="Saída do Estoque" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/saida" mat-raised-button matTooltip="Saída do Estoque" matTooltipClass="tooltip-sidebar"
           class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-usd"></i> Venda 
         </button>
@@ -49,14 +49,14 @@
       </div>
 
       <div class="div-sidenav">
-        <button routerLink="/relatorio-entrada" mat-raised-button matTooltip="Relatório" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/relatorio-entrada" mat-raised-button matTooltip="Relatório" matTooltipClass="tooltip-sidebar"
           class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-file-pdf-o"></i> Entrada 
         </button>
       </div>
 
       <div class="div-sidenav">
-        <button routerLink="/relatorio-saida" mat-raised-button matTooltip="Relatório" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/relatorio-saida" mat-raised-button matTooltip="Relatório" matTooltipClass="tooltip-sidebar"
           class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-file-pdf-o"></i> Saída
         </button>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="div-sidenav">
-        <button routerLink="/grafico" mat-raised-button matTooltip="Gráfico" matTooltipClass="tooltip-sidebar"
+        <button routerLink="/master/grafico" mat-raised-button matTooltip="Gráfico" matTooltipClass="tooltip-sidebar"
           class="button-sidenav" (click)="drawer.close()">
           <i class="fa fa-bar-chart"></i> Semanal 
         </button>
